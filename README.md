@@ -6,7 +6,7 @@ API文件請見：
 
 https://g0v.hackpad.com/API-bSmx3h922jc
 
-[![Build Status](https://travis-ci.org/billy3321/cic-website.svg?branch=master)](https://travis-ci.org/billy3321/cic-website)
+[![Build Status](https://travis-ci.org/cic-tw/cic-website.svg?branch=master)](https://travis-ci.org/cic-tw/cic-website)
 
 ## Project Build
 
