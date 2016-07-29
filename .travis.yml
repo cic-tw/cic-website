@@ -11,7 +11,8 @@ rvm:
   # Add more Ruby versions to list if supported,
   # Travis supports these versions: http://rubies.travis-ci.org/
 env:
-  secure: "SBvuWquXGmS9VOD6rfJ0FdLpvFPPO5F5vxOTmc7IGmXzGSaBwgdeLRrst7fb4xe6/xhu1aZnfDPDJwHSWQq30n8YYftdB93LWhspE0wxDsdyhsP6kI6qVRiNEISH8aaD7RH/dlRptaZwN/ZvP/Pb578wzIovdJM9y9Su5R0MOcw="
+  secure: "mmoYYAWzcDX6BtS74JJ1vLLSxw4/rmOoYzexW6mLjG4C66bbrklLzic24GwY1ab/9OW9E4ZGZO3h1l7j+ylv9hdDP2FuaShV3woNiCyVdZA5oarRRkSCESct2Uinm2mXlvVCaGyD8Dg1KhQoXex5++wlqFMyX/Ryf/ZTZhM6tVhlGZAwnGDWDArVK1RTcFI9CSurugeueuNf2VMLAGPDjT0a9nAoyoeCdS1YrizEZOCbnNXkl4DZZsTaDewWxq9RRkvINe8PtFNKq8dwG/ZG+Cr1Ohrg4zBD76pno/UieltUWuEZecLXzWSPUyY9Pl2eV5uc5Gj1QNKrxL1knmavX2vOfyCretjPfywg0ehbEP2m7mzkNLCbx+jTcXXU+40e4GvUWtuKVc5AluS9g4yPFgV5+C3vUV9d3mDZFyYi/FJvJP/5DBNWXPqP2KM5rePuy3NYDfTq2+70rWT1jy+lphWoF+atJay+ttgSRpurei1dg/X9IoVAaUvStOSfJQ935U9OWEtoOs41mPPo3VLLgMI5ayeLWJYL5f71DUVw/IEwmSilV6j1RRaLVUJ/zrCn0oYmd8e7Y2q9c7j0FZgsO5c7/EzDakBgdTm2PC13eATyqRpASfGSwybJilxnVjJ5B9tF+nZRkOw5npU1ohTmQrzPisg3ubZQABAUh/2y2Ns="
+
 # addons:
 #   firefox: "38.0.5" # Set Firefox Version if needed.
 
