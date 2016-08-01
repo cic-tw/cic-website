@@ -7,7 +7,7 @@ class Election < ActiveRecord::Base
   validates_presence_of :ad_id, :legislator_id, :party_id, :constituency
 
   default_scope { order(ad_id: :asc).order(id: :asc) }
-  scope :ordered_by_vote_date, -> { joins(:ad).unscoped.order('ads.vote_date ASC') }
+  scope :ordered_by_vote_date, -> { unscoped.joins(:ad).order('ads.vote_date ASC') }
 
   before_destroy { districts.clear }
 
