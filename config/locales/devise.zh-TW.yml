@@ -49,11 +49,11 @@ zh_tw:
       failure: '從 %{kind} 無法取得認證，因為 "%{reason}".'
     mailer:
       confirmation_instructions:
-        subject: '確認步驟'
+        subject: "【國會調查兵團】帳號驗證步驟"
       reset_password_instructions:
-        subject: '重設密碼步驟'
+        subject: "【國會調查兵團】密碼重設步驟"
       unlock_instructions:
-        subject: '解鎖步驟'
+        subject: "【國會調查兵團】帳號解鎖步驟"
     instructions:
       welcome: '歡迎'
       hello: 'Hi'
