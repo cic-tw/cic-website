@@ -5,7 +5,7 @@ describe "404 page" do
     # Haven't been able to get the "show instead of exceptions" thing working in tests, but this at least makes sure the page can render correctly.
     visit "/404"
     expect(page.status_code).to eq 404
-    expect(page).to have_content("你你想找的頁面不存在或是已經被移除了")
+    expect(page).to have_content("你想找的頁面不存在或是已經被移除了")
   end
 
   it "json work" do
