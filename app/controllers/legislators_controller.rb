@@ -14,12 +14,15 @@ class LegislatorsController < ApplicationController
     else
       if params[:ad] and Ad.exists?(id: params[:ad])
         @ad = Ad.find(params[:ad])
-        @q = @ad.legislators.includes(elections: :party).search(params[:q])
+        search_params = params[:q].present? ? params[:q].clone : {}
+        search_params[:elections_ad_id_eq] = params[:ad]
+        @q = Legislator.includes(elections: [:party, :ad]).search(search_params)
       else
         @ad = nil
+        params[:q][:elections_ad_id_eq] = nil if params[:q].present? and params[:q][:elections_ad_id_eq].present?
         @q = Legislator.includes(elections: :party).search(params[:q])
       end
-      @legislators = @q.result(:distinct => true).all
+      @legislators = @q.result(distinct: true).all
     end
     @parties = Party.all
 
@@ -61,12 +64,15 @@ class LegislatorsController < ApplicationController
     else
       if params[:ad] and Ad.exists?(id: params[:ad])
         @ad = Ad.find(params[:ad])
-        @q = @ad.legislators.includes(elections: :party).has_no_record.search(params[:q])
+        search_params = params[:q].present? ? params[:q].clone : {}
+        search_params[:elections_ad_id_eq] = params[:ad]
+        @q = Legislator.includes(elections: [:party, :ad]).has_no_record.search(search_params)
       else
         @ad = nil
-        @q = Legislator.includes(elections: :party).has_no_record.search(params[:q])
+        params[:q][:elections_ad_id_eq] = nil if params[:q].present? and params[:q][:elections_ad_id_eq].present?
+        @q = Legislator.includes(elections: [:party, :ad]).has_no_record.search(params[:q])
       end
-      @legislators = @q.result(:distinct => true).all
+      @legislators = @q.result(distinct: true).all
     end
     @parties = Party.all
 
@@ -108,12 +114,15 @@ class LegislatorsController < ApplicationController
     else
       if params[:ad] and Ad.exists?(id: params[:ad])
         @ad = Ad.find(params[:ad])
-        @q = @ad.legislators.includes(elections: :party).has_records.search(params[:q])
+        search_params = params[:q].present? ? params[:q].clone : {}
+        search_params[:elections_ad_id_eq] = params[:ad]
+        @q = Legislator.includes(elections: [:ad, :party]).has_records.search(search_params)
       else
         @ad = nil
-        @q = Legislator.includes(elections: :party).has_records.search(params[:q])
+        params[:q][:elections_ad_id_eq] = nil if params[:q].present? and params[:q][:elections_ad_id_eq].present?
+        @q = Legislator.includes(elections: [:ad, :party]).has_records.search(params[:q])
       end
-      @legislators = @q.result(:distinct => true).all
+      @legislators = @q.result(distinct: true).all
     end
     @parties = Party.all
 
