@@ -17,8 +17,8 @@ defaults: &defaults
     app_secret: ""
 
   recaptcha:
-    public_key: ""
-    private_key: ""
+    public_key: <%= ENV['RECAPTCHA_PUBLIC_KEY'] %>
+    private_key: <%= ENV['RECAPTCHA_PRIVATE_KEY'] %>
 
   google_analytics:
     id: ""

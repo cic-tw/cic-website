@@ -1,58 +1,21 @@
-# Setting up Travis CI:
-
-# 1. Go to https://travis-ci.org
-# 2. Click the Sign Up/Sign in with GitHub button and give Travis CI permission
-#    to access your GitHub repositories.
-# 3. Create a file like this one you're reading at `your-rails-app/.travis.yml`:
-
 language: ruby
 rvm:
-  - 2.2.2
-  # Add more Ruby versions to list if supported,
-  # Travis supports these versions: http://rubies.travis-ci.org/
+- 2.2.2
 env:
-  secure: "mmoYYAWzcDX6BtS74JJ1vLLSxw4/rmOoYzexW6mLjG4C66bbrklLzic24GwY1ab/9OW9E4ZGZO3h1l7j+ylv9hdDP2FuaShV3woNiCyVdZA5oarRRkSCESct2Uinm2mXlvVCaGyD8Dg1KhQoXex5++wlqFMyX/Ryf/ZTZhM6tVhlGZAwnGDWDArVK1RTcFI9CSurugeueuNf2VMLAGPDjT0a9nAoyoeCdS1YrizEZOCbnNXkl4DZZsTaDewWxq9RRkvINe8PtFNKq8dwG/ZG+Cr1Ohrg4zBD76pno/UieltUWuEZecLXzWSPUyY9Pl2eV5uc5Gj1QNKrxL1knmavX2vOfyCretjPfywg0ehbEP2m7mzkNLCbx+jTcXXU+40e4GvUWtuKVc5AluS9g4yPFgV5+C3vUV9d3mDZFyYi/FJvJP/5DBNWXPqP2KM5rePuy3NYDfTq2+70rWT1jy+lphWoF+atJay+ttgSRpurei1dg/X9IoVAaUvStOSfJQ935U9OWEtoOs41mPPo3VLLgMI5ayeLWJYL5f71DUVw/IEwmSilV6j1RRaLVUJ/zrCn0oYmd8e7Y2q9c7j0FZgsO5c7/EzDakBgdTm2PC13eATyqRpASfGSwybJilxnVjJ5B9tF+nZRkOw5npU1ohTmQrzPisg3ubZQABAUh/2y2Ns="
-
-# addons:
-#   firefox: "38.0.5" # Set Firefox Version if needed.
-
-# If needed, use xvfb to setup fake monitor display so Firefox GUI can be used by specs:
-# http://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-GUI-(e.g.-a-Web-browser)
-# before_install:
-#   - "export DISPLAY=:99.0"
-#   - "sh -e /etc/init.d/xvfb start"
+  global:
+  - secure: mmoYYAWzcDX6BtS74JJ1vLLSxw4/rmOoYzexW6mLjG4C66bbrklLzic24GwY1ab/9OW9E4ZGZO3h1l7j+ylv9hdDP2FuaShV3woNiCyVdZA5oarRRkSCESct2Uinm2mXlvVCaGyD8Dg1KhQoXex5++wlqFMyX/Ryf/ZTZhM6tVhlGZAwnGDWDArVK1RTcFI9CSurugeueuNf2VMLAGPDjT0a9nAoyoeCdS1YrizEZOCbnNXkl4DZZsTaDewWxq9RRkvINe8PtFNKq8dwG/ZG+Cr1Ohrg4zBD76pno/UieltUWuEZecLXzWSPUyY9Pl2eV5uc5Gj1QNKrxL1knmavX2vOfyCretjPfywg0ehbEP2m7mzkNLCbx+jTcXXU+40e4GvUWtuKVc5AluS9g4yPFgV5+C3vUV9d3mDZFyYi/FJvJP/5DBNWXPqP2KM5rePuy3NYDfTq2+70rWT1jy+lphWoF+atJay+ttgSRpurei1dg/X9IoVAaUvStOSfJQ935U9OWEtoOs41mPPo3VLLgMI5ayeLWJYL5f71DUVw/IEwmSilV6j1RRaLVUJ/zrCn0oYmd8e7Y2q9c7j0FZgsO5c7/EzDakBgdTm2PC13eATyqRpASfGSwybJilxnVjJ5B9tF+nZRkOw5npU1ohTmQrzPisg3ubZQABAUh/2y2Ns=
+  - secure: IhVC5SrnmRv/8SzTX23h7OZZYfROhVkiEW85l1/WUoC5DmaVxWOge6snjwGcLXaRNVJnBKuu+q78A9gvkIcUUsBmFFhJR7NJmCC/9cUtbeyNN5z5FCcJ5vaAWYdx1mpnLYeMOJ1X1wVR+7K+Ugwvu3i+goe06+n1nTOqOCqqP/6LasJzVCMjDVIpmr4lQ4ri6qU7Omd780Lo6W3hFMzeqUeUdI757pURFBu1v1epH+vwh68wpjMmQEhtyXP8iGZw6npbSyRpGLjvx5BNlvKD5rEByjz2uzWch9K+dLxFKRkg+MRBvQvFwHV1PZnHEWySw+AcIrNs2iYeJRxWgD9b5oEoiPNF0fPDSK079FuIjqYnqfss1AuWhy4RFLMWsTNWxDD9n62islv1dT+SyfM3EPX3sa+TQRAD1QTscc7zYr3c0YHOpSgVKX3QVpzScQT7meDQ6LbXnTCvjwUM8GoHo/Oea58UX8ydmCfxMNwmMPQYBhQQjS32nK3Toi18y1WUn9so519NT7HPAiB03CuarY74Q/08erkgJLtJ80kq7DSz4T8WAQTwXnZQb6itWGYvz2NE8R2weP2xLOLeStdBNjLV3ETLX84lFVK5XKsuV37KZaZIPofWrJ+DyegBqWeLLioYrmG1jYI+5MVRKvA3J7Rys++6tYwghNql1s4Lmfo=
+  - secure: TsAh2PYZTJS414QVSKr5mKmxpVrOigqjyW9AFH51IalysuLquLCHngHIqv3v8o5muDbeptjz7uX4RVs2yBj4CNP/5EaBNQVsFLb9TwXaRrz76Hq6L6BvfvPb2bsf0Bw0hG1KRCnxvXbYbwaGdzvF839rR7iUxz0RSyhJpT+Lj6zuD9CdauBYF46IPgRXsrJz7i+QaZ3z40aPtg1JDLr0jd6Yezd/JmSs9KImGIQOpYiTHjYJl3xFZOSRerHrUFgdVi7OioX2yWCwhk46zkhhW9fgt/g5iqPgCu61MSP1e9tABzni39wfzD03YkPZluZP/+dtV2PhebltkaFh3xDBQ7JJkYE7fkdhQJVScwFkTslsVVGGbTF3c03Umxam3VeoO6ZV5mUTxSsm1MWvER7P4YfMHwB6i6X2jpSg6nqIlDjf2e3FW2jTK5BW9ILKZ2wzaFXCApXj9xIH3KINjVNnBuUE1KRrFWAIKmBh6wunYyKONc5FKyQGj7OTFjspdCB+xuMUpSQqH65Lcdx2D5qkDlyCxrzvtiBWFjaUd5vu+j/zFQBxHH3SjfVHjey3NSE+aPW8XzkHzpzCvCFDy/GsrHAxLQbVgjFiQ8cn/gZpgym7hZVvY0ZCK9B0nPf6bgZoEK8qGhGIptkPJntdqbaRODwDibtS1yVLXbokG/sIpDA=
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev nodejs optipng jpegoptim redis-server
-
+- sudo apt-get -qq update
+- sudo apt-get install -y libxml2-dev nodejs optipng jpegoptim redis-server
 services:
-  - postgresql
-  - redis-server
-
+- postgresql
+- redis-server
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
-  - cp config/config.yml.travis config/config.yml
-
-
-# 4. OPTIONAL Only customize the `script` option if needed.
-
-# The `script` option is an optional list of the main build task(s). `rake` is
-# the default script option for Travis and most Rails projects will want this
-# when starting out as this usually runs `rake test`.
-
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+- cp config/config.yml.travis config/config.yml
 script:
-  - bin/rake db:migrate RAILS_ENV=test
-  - bin/rake spec
-
-# 5. OPTIONAL Add a Build Status Badge to your README, follow instructions here:
-#    http://docs.travis-ci.com/user/status-images/
-
-# Suggested docs
-# --------------
-# Getting Started: http://docs.travis-ci.com/user/getting-started/
-# Ruby & Travis CI docs: http://docs.travis-ci.com/user/languages/ruby/
-# Supported Ruby Versions: http://rubies.travis-ci.org/
-# Custom build task: http://docs.travis-ci.com/user/customizing-the-build/
-# GUI, Browsers, xvfb: http://docs.travis-ci.com/user/gui-and-headless-browsers/
-# Build Status Badge for README: http://docs.travis-ci.com/user/status-images/
+- bin/rake db:migrate RAILS_ENV=test
+- bin/rake spec
