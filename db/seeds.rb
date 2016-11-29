@@ -19,20 +19,20 @@ parties.each do |p|
 end
 
 committees = [
-  {id: 1, :name: '內政委員會', :kind: 'sc'},
-  {id: 5, :name: '經濟委員會', :kind: 'sc'},
-  {id: 6, :name: '財政委員會', :kind: 'sc'},
-  {id: 8, :name: '教育及文化委員會', :kind: 'sc'},
-  {id: 9, :name: '交通委員會', :kind: 'sc'},
-  {id: 12, :name: '社會福利及衛生環境委員會', :kind: 'sc'},
-  {id: 13, :name: '程序委員會', :kind: 'ac'},
-  {id: 17, :name: '外交及國防委員會', :kind: 'sc'},
-  {id: 18, :name: '司法及法制委員會', :kind: 'sc'},
-  {id: 19, :name: '院會', :kind: 'yc'},
-  {id: 28, :name: '紀律委員會', :kind: 'ac'},
-  {id: 15, :name: '修憲委員會', :kind: 'ac'},
-  {id: 30, :name: '經費稽核委員會', :kind: 'ac'},
-  {id: 41, :name: '全院委員會', :kind: 'ac'}
+  {id: 1, name: '內政委員會', kind: 'sc'},
+  {id: 5, name: '經濟委員會', kind: 'sc'},
+  {id: 6, name: '財政委員會', kind: 'sc'},
+  {id: 8, name: '教育及文化委員會', kind: 'sc'},
+  {id: 9, name: '交通委員會', kind: 'sc'},
+  {id: 12, name: '社會福利及衛生環境委員會', kind: 'sc'},
+  {id: 13, name: '程序委員會', kind: 'ac'},
+  {id: 17, name: '外交及國防委員會', kind: 'sc'},
+  {id: 18, name: '司法及法制委員會', kind: 'sc'},
+  {id: 19, name: '院會', kind: 'yc'},
+  {id: 28, name: '紀律委員會', kind: 'ac'},
+  {id: 15, name: '修憲委員會', kind: 'ac'},
+  {id: 30, name: '經費稽核委員會', kind: 'ac'},
+  {id: 41, name: '全院委員會', kind: 'ac'}
 ]
 
 Committee.delete_all
@@ -41,8 +41,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!(Committee.table_name)
 committees.each do |c|
   committee = Committee.new()
   committee.id = c[id]
-  committee.name = c[:name]
-  committee.kind = c[:kind]
+  committee.name = c[name]
+  committee.kind = c[kind]
   committee.save
 end
 
@@ -52,16 +52,16 @@ ActiveRecord::Base.connection.reset_pk_sequence!(Ad.table_name)
 ads = [
     {
       id: 8,
-      :name: '第8屆',
-      :vote_date: '2012-01-14',
-      :term_start: '2012-02-01',
-      :term_end: '2016-01-31'
+      name: '第8屆',
+      vote_date: '2012-01-14',
+      term_start: '2012-02-01',
+      term_end: '2016-01-31'
     }, {
       id: 9,
-      :name: '第9屆',
-      :vote_date: '2016-01-16',
-      :term_start: '2016-02-01',
-      :term_end: '2020-01-31'
+      name: '第9屆',
+      vote_date: '2016-01-16',
+      term_start: '2016-02-01',
+      term_end: '2020-01-31'
     }
   ]
 
@@ -78,23 +78,23 @@ ActiveRecord::Base.connection.reset_pk_sequence!(AdSession.table_name)
 # http://npl.ly.gov.tw/do/www/appDate?blockId=2
 
 ad_sessions = [
-  {id: 1, ad_id: 8, :name: '第1會期', date_start: '2012-02-24', date_end: '2012-06-15', regular: true, session: 1},
-  {id: 2, ad_id: 8, :name: '第1會期第1次臨時會', date_start: '2012-07-24', date_end: '2012-07-26', regular: false, session: 1},
-  {id: 3, ad_id: 8, :name: '第2會期', date_start: '2012-09-18', date_end: '2013-01-15', regular: true, session: 2},
-  {id: 4, ad_id: 8, :name: '第3會期', date_start: '2013-02-26', date_end: '2013-05-31', regular: true, session: 3},
-  {id: 5, ad_id: 8, :name: '第3會期第1次臨時會', date_start: '2013-06-13', date_end: '2013-06-27', regular: false, session: 3},
-  {id: 6, ad_id: 8, :name: '第3會期第2次臨時會', date_start: '2013-07-30', date_end: '2013-08-06', regular: false, session: 3},
-  {id: 7, ad_id: 8, :name: '第4會期', date_start: '2013-09-17', date_end: '2014-01-14', regular: true, session: 4},
-  {id: 8, ad_id: 8, :name: '第4會期第1次臨時會', date_start: '2014-01-27', date_end: '2014-01-28', regular: false, session: 4},
-  {id: 9, ad_id: 8, :name: '第5會期', date_start: '2014-02-21', date_end: '2014-05-30', regular: true, session: 5},
-  {id: 10, ad_id: 8, :name: '第5會期第1次臨時會', date_start: '2014-06-13', date_end: '2014-07-04', regular: false, session: 5},
-  {id: 11, ad_id: 8, :name: '第5會期第2次臨時會', date_start: '2014-07-28', date_end: '2014-08-08', regular: false, session: 5},
-  {id: 12, ad_id: 8, :name: '第6會期', date_start: '2014-09-12', date_end: '2015-01-23', regular: true, session: 6},
-  {id: 13, ad_id: 8, :name: '第7會期', date_start: '2015-02-24', date_end: '2015-06-16', regular: true, session: 7},
-  {id: 14, ad_id: 8, :name: '第8會期', date_start: '2015-09-15', date_end: '2015-12-18', regular: true, session: 8},
-  {id: 15, ad_id: 9, :name: '第1會期', date_start: '2016-02-19', date_end: '2016-07-15', regular: true, session: 1},
-  {id: 16, ad_id: 9, :name: '第1會期第1次臨時會', date_start: '2016-07-20', date_end: '2016-07-29', regular: false, session: 1},
-  {id: 17, ad_id: 9, :name: '第2會期', date_start: '2016-09-13', date_end: nil, regular: true, session: 2}
+  {id: 1, ad_id: 8, name: '第1會期', date_start: '2012-02-24', date_end: '2012-06-15', regular: true, session: 1},
+  {id: 2, ad_id: 8, name: '第1會期第1次臨時會', date_start: '2012-07-24', date_end: '2012-07-26', regular: false, session: 1},
+  {id: 3, ad_id: 8, name: '第2會期', date_start: '2012-09-18', date_end: '2013-01-15', regular: true, session: 2},
+  {id: 4, ad_id: 8, name: '第3會期', date_start: '2013-02-26', date_end: '2013-05-31', regular: true, session: 3},
+  {id: 5, ad_id: 8, name: '第3會期第1次臨時會', date_start: '2013-06-13', date_end: '2013-06-27', regular: false, session: 3},
+  {id: 6, ad_id: 8, name: '第3會期第2次臨時會', date_start: '2013-07-30', date_end: '2013-08-06', regular: false, session: 3},
+  {id: 7, ad_id: 8, name: '第4會期', date_start: '2013-09-17', date_end: '2014-01-14', regular: true, session: 4},
+  {id: 8, ad_id: 8, name: '第4會期第1次臨時會', date_start: '2014-01-27', date_end: '2014-01-28', regular: false, session: 4},
+  {id: 9, ad_id: 8, name: '第5會期', date_start: '2014-02-21', date_end: '2014-05-30', regular: true, session: 5},
+  {id: 10, ad_id: 8, name: '第5會期第1次臨時會', date_start: '2014-06-13', date_end: '2014-07-04', regular: false, session: 5},
+  {id: 11, ad_id: 8, name: '第5會期第2次臨時會', date_start: '2014-07-28', date_end: '2014-08-08', regular: false, session: 5},
+  {id: 12, ad_id: 8, name: '第6會期', date_start: '2014-09-12', date_end: '2015-01-23', regular: true, session: 6},
+  {id: 13, ad_id: 8, name: '第7會期', date_start: '2015-02-24', date_end: '2015-06-16', regular: true, session: 7},
+  {id: 14, ad_id: 8, name: '第8會期', date_start: '2015-09-15', date_end: '2015-12-18', regular: true, session: 8},
+  {id: 15, ad_id: 9, name: '第1會期', date_start: '2016-02-19', date_end: '2016-07-15', regular: true, session: 1},
+  {id: 16, ad_id: 9, name: '第1會期第1次臨時會', date_start: '2016-07-20', date_end: '2016-07-29', regular: false, session: 1},
+  {id: 17, ad_id: 9, name: '第2會期', date_start: '2016-09-13', date_end: nil, regular: true, session: 2}
 ]
 
 ad_sessions.each do |a|
@@ -240,7 +240,7 @@ counties = [{id: 1, name: "全國不分區"},
 counties.each do |c|
   county = County.new()
   county.id = c[id]
-  county.name = c[:name]
+  county.name = c[name]
   county.save
 end
 ActiveRecord::Base.connection.reset_pk_sequence!(County.table_name)
