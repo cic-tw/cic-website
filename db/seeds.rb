@@ -239,8 +239,8 @@ counties = [{id: 1, name: "全國不分區"},
 
 counties.each do |c|
   county = County.new()
-  county.id = c[id]
-  county.name = c[name]
+  county.id = c[:id]
+  county.name = c[:name]
   county.save
 end
 ActiveRecord::Base.connection.reset_pk_sequence!(County.table_name)
@@ -258,17 +258,17 @@ ActiveRecord::Base.connection.execute("Delete from districts_elections;");
 
 ads.each do |ad|
   #import mly-{ad}.json
-  legislators_filepath = Rails.root.join('db', 'g0v-lyparser', "mly-#{ad[id]}.json")
+  legislators_filepath = Rails.root.join('db', 'g0v-lyparser', "mly-#{ad[:id]}.json")
   legislators_links_filepath = Rails.root.join('db', 'data', 'legislator-links.json')
   legislators = JSON.parse(File.read(legislators_filepath))
   legislator_links = JSON.parse(File.read(legislators_links_filepath))
   legislators.each do |l|
-    vote_guide_data = get_vote_guide_legislator_term_data(l['uid'], ad[id])
+    vote_guide_data = get_vote_guide_legislator_term_data(l['uid'], ad[:id])
     unless vote_guide_data.blank?
       l['county'] = vote_guide_data['county'] unless vote_guide_data['county'].blank?
-      if ad[id] == 8 and l['county'] == "桃園市"
+      if ad[:id] == 8 and l['county'] == "桃園市"
         l['county'] == "桃園縣"
-      elsif ad[id] > 8 and l['county'] == "桃園縣"
+      elsif ad[:id] > 8 and l['county'] == "桃園縣"
         l['county'] == "桃園市"
       end
       if vote_guide_data['district'].blank?
@@ -309,7 +309,7 @@ ads.each do |ad|
     end
     election = Election.new()
     election.legislator_id = l['uid']
-    election.ad_id = ad[id]
+    election.ad_id = ad[:id]
     election.party_id = Party.where(abbreviation: l['party']).first.id
     constituency = constituency_parser(l['constituency'])
     election.constituency = constituency
@@ -474,7 +474,7 @@ incantations = [
 
 incantations.each do |i|
   incantation = Incantation.new(i)
-  incantation.id = i[id]
+  incantation.id = i[:id]
   incantation.save
 end
 
