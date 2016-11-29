@@ -40,9 +40,9 @@ ActiveRecord::Base.connection.reset_pk_sequence!(Committee.table_name)
 
 committees.each do |c|
   committee = Committee.new()
-  committee.id = c[id]
-  committee.name = c[name]
-  committee.kind = c[kind]
+  committee.id = c[:id]
+  committee.name = c[:name]
+  committee.kind = c[:kind]
   committee.save
 end
 
@@ -67,7 +67,7 @@ ads = [
 
 ads.each do |a|
   ad = Ad.new(a)
-  ad.id = a[id]
+  ad.id = a[:id]
   ad.save
 end
 
