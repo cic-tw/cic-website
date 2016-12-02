@@ -146,11 +146,11 @@ def constituency_parser(constituency)
   when 'foreign'
     return '僑居國外國民'
   else
-    if ISO3166TW[constituency[0]]
+    if ISO3166TW[:"#{constituency[0]}"]
       if (constituency[1] == 0)
-        result = ISO3166TW[constituency[0]]
+        result = ISO3166TW[:"#{constituency[0]}"]
       else
-        result = ISO3166TW[constituency[0]] + '第' + constituency[1].to_s + '選區'
+        result = ISO3166TW[:"#{constituency[0]}"] + '第' + constituency[1].to_s + '選區'
       end
     end
     return result
@@ -295,7 +295,11 @@ ads.each do |ad|
         # legislator.now_party_id = 7
       # end
       legislator.name = l['name']
-      legislator.in_office = l['in_office']
+      if ad == ads.last
+        legislator.in_office = l['in_office']
+      else
+        legislator.in_office = false
+      end
       legislator.image = l['uid'].to_s + '.jpg'
       legislator_links.each do |links|
         if links[0].to_i == l['uid']
