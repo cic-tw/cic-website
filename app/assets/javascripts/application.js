@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require jquery-ui/accordion
-//= require jquery-ui/datepicker
+//= require jquery-ui/widgets/accordion
+//= require jquery-ui/widgets/datepicker
 //= require chosen-jquery
 //= require magnific-popup
 //= require jquery.timepicker.js
