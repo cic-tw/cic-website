@@ -17,8 +17,8 @@ defaults: &defaults
     app_secret: ""
 
   recaptcha:
-    public_key: ""
-    private_key: ""
+    site_key: ""
+    secret_key: ""
 
   url:
     host: ""
