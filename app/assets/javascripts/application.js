@@ -99,7 +99,8 @@ var ready = function(){
     heightStyle: "content"
   });
 
-  $('.all_party_button').click(function(){
+  $('.all_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').show();
     $('.dpp').show();
     $('.pfp').show();
@@ -117,7 +118,8 @@ var ready = function(){
     $('.null_party_button').removeClass('current');
     $('.npp_party_button').removeClass('current');
   });
-  $('.kmt_party_button').click(function(){
+  $('.kmt_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').show();
     $('.dpp').hide();
     $('.pfp').hide();
@@ -136,7 +138,8 @@ var ready = function(){
     $('.mkt_party_button').removeClass('current');
     $('.npp_party_button').removeClass('current');
   });
-  $('.dpp_party_button').click(function(){
+  $('.dpp_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').hide();
     $('.dpp').show();
     $('.pfp').hide();
@@ -155,7 +158,8 @@ var ready = function(){
     $('.mkt_party_button').removeClass('current');
     $('.npp_party_button').removeClass('current');
   });
-  $('.pfp_party_button').click(function(){
+  $('.pfp_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').hide();
     $('.dpp').hide();
     $('.pfp').show();
@@ -174,7 +178,8 @@ var ready = function(){
     $('.mkt_party_button').removeClass('current');
     $('.npp_party_button').removeClass('current');
   });
-  $('.nsu_party_button').click(function(){
+  $('.nsu_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').hide();
     $('.dpp').hide();
     $('.pfp').hide();
@@ -193,7 +198,8 @@ var ready = function(){
     $('.mkt_party_button').removeClass('current');
     $('.npp_party_button').removeClass('current');
   });
-  $('.tsu_party_button').click(function(){
+  $('.tsu_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').hide();
     $('.dpp').hide();
     $('.pfp').hide();
@@ -212,7 +218,8 @@ var ready = function(){
     $('.mkt_party_button').removeClass('current');
     $('.npp_party_button').removeClass('current');
   });
-  $('.mkt_party_button').click(function(){
+  $('.mkt_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').hide();
     $('.dpp').hide();
     $('.pfp').hide();
@@ -231,7 +238,8 @@ var ready = function(){
     $('.mkt_party_button').addClass('current');
     $('.npp_party_button').removeClass('current');
   });
-  $('.npp_party_button').click(function(){
+  $('.npp_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').hide();
     $('.dpp').hide();
     $('.pfp').hide();
@@ -250,7 +258,8 @@ var ready = function(){
     $('.mkt_party_button').removeClass('current');
     $('.npp_party_button').addClass('current');
   });
-  $('.null_party_button').click(function(){
+  $('.null_party_button').click(function(event){
+    event.preventDefault();
     $('.kmt').hide();
     $('.dpp').hide();
     $('.pfp').hide();
