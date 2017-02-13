@@ -73,6 +73,23 @@ height:60px;}
 #first-nav li a:hover{
 color:#E60012;
 }
+
+#first-nav li .nav-donate{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-color: #E60012;
+	color: #fff;
+	display: block;
+	text-align: center;
+	padding: 10px 15px;
+	font-size: 24px;
+}
+#first-nav li .nav-donate:hover{
+	color: #fff;
+}
+
+
 #index-video-block{
 	overflow:hidden;
 	background:#f3f3f3;
@@ -2809,9 +2826,7 @@ margin:0 10px 0 0;
 	margin:0 0 0 -1px ;
 	}
 
-#first-nav li a{
-padding:7px 10px;		
-	}
+.nav-login
 /*首頁*/
 	#index-main-video{
 	max-width:630px;
@@ -3058,17 +3073,10 @@ padding-top:19.5%;}
 	#book-sell a:nth-child(3){
 		display:block;}
 /*表頭*/
-#first-nav{
-	width:auto;}
-#first-nav li{
-	float:none;
-	display:block;
-	border:1px solid #ccc;
-	margin:0px 0 -1px 0 ;
-	text-align:center;
+#first-nav li a.nav-info{
+		display: none;
 	}
-#first-nav li a{
-	display:block;}
+
 #top h6{
 	width:150px;
 	top:19px;}
@@ -3273,4 +3281,5 @@ padding:5px;}
 	width:63%;}
 	.info-number{
 	width:66%;}
+
 }
