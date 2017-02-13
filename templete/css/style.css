@@ -75,7 +75,7 @@ color:#E60012;
 }
 
 #first-nav li .nav-donate{
-	position: absolute;
+	position: fixed;
 	right: 0;
 	bottom: 0;
 	background-color: #E60012;
