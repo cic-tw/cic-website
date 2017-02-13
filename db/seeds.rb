@@ -290,10 +290,10 @@ ads.each do |ad|
     else
       legislator = Legislator.new()
       legislator.id = l['uid']
-      # if l['id'] == 1747
+      if l['id'] == 1747
         # 徐欣瑩現在屬於民國黨
-        # legislator.now_party_id = 7
-      # end
+        legislator.now_party_id = 7
+      end
       legislator.name = l['name']
       if ad == ads.last
         legislator.in_office = l['in_office']
