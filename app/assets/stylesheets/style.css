@@ -84,6 +84,7 @@ color:#E60012;
 	text-align: center;
 	padding: 10px 15px;
 	font-size: 24px;
+	z-index: 999;
 }
 #first-nav li .nav-donate:hover{
 	color: #fff;
