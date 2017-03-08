@@ -1,13 +1,25 @@
 class KeywordsController < ApplicationController
-  before_action :set_keyword, except: [:index, :new]
+  before_action :set_keyword, except: [:index, :new, :entries, :interpellations, :videos]
+  before_action :authenticate_user!
+  before_action :require_admin
 
   # GET /keywords
   def index
-    @keywords = Keyword.all.page params[:page]
+    @q = Keyword.search(params[:q])
+    @keywords = @q.result(:distinct => true).page(params[:page])
   end
 
   # GET /keywords/1
   def show
+  end
+
+  def entries
+  end
+
+  def interpellations
+  end
+
+  def videos
   end
 
   # GET /keywords/new
@@ -22,7 +34,7 @@ class KeywordsController < ApplicationController
   # POST /keywords
   def create
     if @keyword.save
-        redirect_to @keyword, notice: '關鍵字建立成功'
+        redirect_to keywords_url, notice: '關鍵字建立成功'
     else
       render :new
     end
@@ -31,7 +43,7 @@ class KeywordsController < ApplicationController
   # PATCH/PUT /keywords/1
   def update
     if @keyword.update(keyword_params)
-      redirect_to @keyword, notice: '關鍵字更新成功'
+      redirect_to keywords_url, notice: '關鍵字更新成功'
     else
       render :edit
     end

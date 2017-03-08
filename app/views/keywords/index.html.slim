@@ -1,20 +1,35 @@
-h1 關鍵字列表
-
-table class="table"
-  thead
-    tr
-      th Name
-      th colspan="3"
-
-
-  tbody
-    - @keywords.each do |keyword| 
+#sys-block
+  h2 關鍵字管理
+  .inner-list
+    #search-bar.data-search
+      = search_form_for @q, url: keywords_path do |f|
+        = f.search_field :name_cont, class: "keyin", id: "textfield"
+        = f.submit '搜尋', class: "submit-btn", id: "submit"
+    ul.subtab
+      li
+        = link_to "關鍵字管理", keywords_path
+      li
+        = link_to '建立關鍵字', new_keyword_path
+    table.adm-table width="100%" 
       tr
-        td = keyword.name
-        td = link_to '顯示', keyword_path(keyword), class: "btn"
-        td = link_to '修改', edit_keyword_path(keyword), class: "btn"
-        td = link_to '刪除', keyword_path(keyword), method: :delete, data: { confirm: '確認要刪除嗎？' }, class: "btn"
+        th width="9%"  關鍵字
+        th width="10%"  影片數
+        th width="9%"  質詢數
+        th width="9%"  新聞數
+        th width="9%"  操作
+      - @keywords.each do |k|
+        tr
+          td = k.name
+          td.r
+            = link_to k.videos.count , admin_videos_path(keyword: k.id)
+          td.r
+            = link_to k.interpellations.count , admin_interpellations_path(keyword: k.id)
+          td.r
+            = link_to k.entries.count , admin_entries_path(keyword: k.id)
+          td.c
+            = link_to "編輯", edit_keyword_path(k)
+            | \
+            = link_to '刪除', keyword_path(k), method: :delete, data: { confirm: '刪除關鍵字後，所有設定此關鍵字的影片質詢新聞內將不再有此關鍵字。確定要刪除？' }
 
-br
-
-= link_to '建立關鍵字', new_keyword_path, class: "btn"
+    #page-bar
+      = paginate @keywords

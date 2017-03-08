@@ -1,11 +1,16 @@
 = render 'shared/error_messages', object: f.object
-ul class="form-list"
+ul.form-list
   = f.hidden_field :user_id, :value => current_user.id
   li
     p class="snote" ＊為必填項目
   li
     p 立委姓名＊
     p = f.association :legislators, label: false, collection: Legislator.all, input_html: { class: 'chosen-select' }
+  - if current_user.admin?
+    li
+      p 關鍵字＊
+      p.snote 可輸入多個關鍵字，若找不到想輸入的關鍵字，請至後台新增。
+      p = f.association :keywords, label: false, collection: Keyword.all, input_html: { class: 'chosen-select' }
   li
     p 標題＊
     p = f.input :title, label: false, required: true

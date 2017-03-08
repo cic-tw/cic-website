@@ -8,15 +8,30 @@ class AdminsController < ApplicationController
   end
 
   def entries
-    @entries = Entry.all.page(params[:page])
+    @keyword = params[:keyword] ? Keyword.find(params[:keyword]) : nil
+    if @keyword
+      @entries = @keyword.entries.page(params[:page])
+    else
+      @entries = Entry.all.page(params[:page])
+    end
   end
 
   def interpellations
-    @interpellations = Interpellation.all.page(params[:page])
+    @keyword = params[:keyword] ? Keyword.find(params[:keyword]) : nil
+    if @keyword
+      @interpellations = @keyword.interpellations.page(params[:page])
+    else
+      @interpellations = Interpellation.all.page(params[:page])
+    end
   end
 
   def videos
-    @videos = Video.all.page(params[:page])
+    @keyword = params[:keyword] ? Keyword.find(params[:keyword]) : nil
+    if @keyword
+      @videos = @keyword.videos.page(params[:page])
+    else
+      @videos = Video.all.page(params[:page])
+    end
   end
 
   def data

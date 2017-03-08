@@ -52,6 +52,7 @@ Rails.application.routes.draw do
       end
     end
     resources :parties
+    resources :keywords, except: [:show]
     root 'admins#index',             via: 'get', as: 'admin'
     match 'entries',          to: 'admins#entries',          via: 'get', as: 'admin_entries'
     match 'interpellations',        to: 'admins#interpellations',        via: 'get', as: 'admin_interpellations'

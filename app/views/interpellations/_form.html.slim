@@ -6,6 +6,11 @@ ul class="form-list"
   li
     p 立委姓名＊
     p = f.association :legislators, label: false, collection: Legislator.all, input_html: { class: 'chosen-select' }, required: true
+  - if current_user.admin?
+    li
+      p 關鍵字＊
+      p.snote 可輸入多個關鍵字，若找不到想輸入的關鍵字，請至後台新增。
+      p = f.association :keywords, label: false, collection: Keyword.all, input_html: { class: 'chosen-select' }
   li
     p 標題
     p class="snote" 請填寫標題，若消息來源是ivod，可自動產生。
