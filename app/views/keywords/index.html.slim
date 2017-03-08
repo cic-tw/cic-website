@@ -28,7 +28,7 @@
             = link_to k.entries.count , admin_entries_path(keyword: k.id)
           td.c
             = link_to "編輯", edit_keyword_path(k)
-            | \
+            | &nbsp;|&nbsp;
             = link_to '刪除', keyword_path(k), method: :delete, data: { confirm: '刪除關鍵字後，所有設定此關鍵字的影片質詢新聞內將不再有此關鍵字。確定要刪除？' }
 
     #page-bar
