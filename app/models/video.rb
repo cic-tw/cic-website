@@ -4,7 +4,7 @@ class Video < ApplicationRecord
   belongs_to :user
   belongs_to :committee
   belongs_to :ad_session
-  paginates_per 9
+  paginates_per 15
   validates_presence_of :youtube_url, message: '必須填寫youtube網址'
   validates_presence_of :title, message: '必須填寫影片標題'
   validates_presence_of :user_id, message: '必須有回報者'

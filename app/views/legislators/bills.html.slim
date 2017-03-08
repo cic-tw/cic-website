@@ -20,7 +20,8 @@
           = link_to "立委投票指南", "http://vote.ly.g0v.tw/", target: "_blank"
           | 、
           = link_to "國會大代誌", "http://ly.g0v.tw/", target: "_blank"
-    = social_share_button_tag("#{@legislator.name}法律修正案")
+    .fb-share
+      = social_share_button_tag("#{@legislator.name}法律修正案")
     nav#sec-nav
       .count-law
         | 第8屆任期共提出

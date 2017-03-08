@@ -1,17 +1,17 @@
 #single-data-page
-  .legislators-group
-    - @video.legislators.each do |l|
-      = render partial: 'shared/legislator_info', locals: { l: l }
-
-  section class="single-page-inner"
+  section.single-page-inner
     header
       h3 = @video.title
-    = social_share_button_tag(@video.title)
-    .video-inner-show
-      iframe src="https://www.youtube.com/embed/#{@video.youtube_id}" frameborder="0" class="video-play" allowfullscreen="1"
+    .fb-share
+      = social_share_button_tag(@video.title)
     - @video.legislators.each do |l|
       = render partial: 'shared/legislator_short_info', locals: { l: l }
-    ul id="sinner-src-list"
+    .video-inner-show
+      iframe src="https://www.youtube.com/embed/#{@video.youtube_id}" frameborder="0" class="video-play" allowfullscreen="1"
+    .inner-content-txt
+      .video-inner-txt
+        = @video.content.try(:html_safe)
+    ul#sinner-src-list
       - if ['news', 'others'].include? @video.video_type
         li 
           | 出處：
@@ -52,29 +52,17 @@
         li 
           | 質詢對象：
           = @video.target
-    .inner-content-txt
-      .video-inner-txt
-        = @video.content.try(:html_safe)
+    
     .writer
       span 資料回報者
       = @video.user.try(:name)
       | &nbsp;
-      time class="time"
+      time.time
         = @video.created_at.strftime('%Y-%m-%d')
     - if user_signed_in? and (@video.user == current_user or current_user.admin?)
       .edit-block
         ul class="edit-btn"
           li = link_to '修改編輯', edit_video_path(@video)
           li = link_to '刪除', video_path(@video), method: :delete, data: { confirm: '確認要刪除嗎？' }
-    #disqus_thread
-    aside id="aside-info"
-      #accordion
-        - @video.legislators.each do |l|
-          - if l.videos.published.created_after(@video.created_at).any?
-            h3 = l.name
-            div style="height: #{(130 * ((l.videos.published.created_after(@video.created_at).first(6).length + 1) / 2))}px;"
-              ul class="video-other-list"
-                - l.videos.published.created_after(@video.created_at).first(6).each do |v|
-                  li 
-                    = link_to image_tag(v.image, width: "135", height: "102"), video_path(v), class: "vo-img"
-                    = link_to v.title, video_path(v), class: "vo-title"
+    .reply-message
+      #disqus_thread

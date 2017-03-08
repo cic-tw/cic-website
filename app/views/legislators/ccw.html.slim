@@ -22,7 +22,8 @@
             = link_to "公民監督國會聯盟", @ccw_citizen_score.ccw_link, target: "_blank"
           - else
             = link_to "公民監督國會聯盟", "http://ccw.org.tw", target: "_blank"
-    = social_share_button_tag("#{@legislator.name}公督盟評鑑")
+    .fb-share
+      = social_share_button_tag("#{@legislator.name}公督盟評鑑")
     .inner-content-txt
       - if @status
         .analysis-sblock

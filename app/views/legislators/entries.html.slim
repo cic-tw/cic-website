@@ -2,11 +2,11 @@
   = render partial: 'shared/legislator_info', locals: { l: @legislator }
 
 #news-show-list
-  section class="big-news-show"
+  section.big-news-show
     - if @main_entry
       header
         h3 = link_to @main_entry.title, entry_path(@main_entry)
-      time class="time"
+      time.time
         = @main_entry.created_at.strftime('%Y-%m-%d')
       .inner-content
         = display_shorter(@main_entry.content, 75)
@@ -18,10 +18,10 @@
   - if @sub_entries
     - @sub_entries.each do |e|
       #news-inner-list
-        section class="small-news-show"
+        section.small-news-show
           header
             h3 = link_to e.title, entry_path(e)
-          time class="time"
+          time.time
             = e.created_at.strftime('%Y-%m-%d')
           .inner-content
             = display_shorter(e.content, 75)

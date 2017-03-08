@@ -1,7 +1,7 @@
 ul class="sinner-info"
   li
     span 立委
-    em = l.name
+    em = link_to l.name, legislator_path(l)
   li
     span 屆次
     em = l.elections.last.ad.name

@@ -19,10 +19,11 @@
         .data-src
           | 原始資料來源：
           = link_to '公民監督國會聯盟', @ad_session.ccw_citizen_score.ccw_link, target: "_blank"
-    - unless @committee.kind == 'yc'
-      = social_share_button_tag("#{@ad_session.ad.name}#{@ad_session.name}出席率、質詢率排行")
-    - else
-      = social_share_button_tag("#{@ad_session.ad.name}#{@ad_session.name}院會出席率排行")
+    .fb-share
+      - unless @committee.kind == 'yc'
+        = social_share_button_tag("#{@ad_session.ad.name}#{@ad_session.name}出席率、質詢率排行")
+      - else
+        = social_share_button_tag("#{@ad_session.ad.name}#{@ad_session.name}院會出席率排行")
     .inner-content-txt
       .graphic-group
         .graphic-start

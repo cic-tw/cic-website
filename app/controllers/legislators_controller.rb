@@ -153,8 +153,8 @@ class LegislatorsController < ApplicationController
 
   # GET /legislators/1
   def show
-    @videos = @legislator.videos.published.first(5)
-    @main_video = @videos.shift
+    @videos = @legislator.videos.published.first(15)
+    @main_videos = @videos.shift(3)
     @sub_videos = @videos
     @entries = @legislator.entries.published.first(5)
     @interpellations = @legislator.interpellations.published.first(5)
@@ -298,8 +298,8 @@ class LegislatorsController < ApplicationController
       @videos = @legislator.videos.published.page(params[:page])
     end
     videos = @videos.clone.to_a
-    @main_video = videos.shift
-    @sub_videos = videos
+    @main_videos = @videos.shift(3)
+    @sub_videos = @videos
 
     set_meta_tags({
       title: "#{@legislator.name}影片列表 — #{@legislator.name}立委",

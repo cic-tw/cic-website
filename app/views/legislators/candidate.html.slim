@@ -18,7 +18,8 @@
         .data-src
           | 資料來源：
           = link_to "立委投票指南", "http://vote.ly.g0v.tw/", target: "_blank"
-    = social_share_button_tag("#{@legislator.name}政治獻金")
+    .fb-share
+      = social_share_button_tag("#{@legislator.name}政治獻金")
     .inner-content-txt
       - if @status
         .graphic-group

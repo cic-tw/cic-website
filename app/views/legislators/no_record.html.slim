@@ -1,6 +1,6 @@
 #search-bar
   = render 'search_form'
-nav id="sec-nav"
+nav#sec-nav
   ul#secn00
     li
       - if @ad.blank?
@@ -17,7 +17,7 @@ nav id="sec-nav"
         = link_to '第八屆', url_for(ad: 8), class: 'current'
       - else
         = link_to '第八屆', url_for(ad: 8)
-  ul id="secn01"
+  ul#secn01
     - if @ad.present?
       li = link_to '所有立委', legislators_path(ad: @ad.id)
       li = link_to '已有資料', legislators_has_records_path(ad: @ad.id)
@@ -26,7 +26,7 @@ nav id="sec-nav"
       li = link_to '所有立委', legislators_path
       li = link_to '已有資料', legislators_has_records_path
       li = link_to '尚無資料', legislators_no_record_path, class: "current"
-  ul id="secn02"
+  ul#secn02
     li = link_to '不分黨籍', '#', class: "all_party_button current"
     - @parties.each do |p|
       li = link_to p.name, '#', class: "#{p.abbr_name}_party_button"
@@ -41,7 +41,7 @@ nav id="sec-nav"
             em class="party-#{l.party.abbr_name} party-tag" = l.party.name
           header
             h2 = link_to l.name, legislator_path(l)
-            ul class="info-number"
+            ul.info-number
               li
                 em 影片數
                 = link_to l.videos.published.count, videos_legislator_path(l)

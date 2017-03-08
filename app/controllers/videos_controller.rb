@@ -26,7 +26,7 @@ class VideosController < ApplicationController
       end
     end
     videos = @videos.clone.to_a
-    @main_video = videos.shift
+    @main_videos = videos.shift(3)
     @sub_videos = videos
 
     meta_legislators = Legislator.order_by_videos_created.limit(3)
