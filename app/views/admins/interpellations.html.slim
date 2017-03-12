@@ -6,13 +6,13 @@
     .inner-list
       table.adm-table width="100%"
         tr
-          th width="4%" = check_box_tag "check_all", 'yes', false, class: "check_all_box"
-          th width="43%" 質詢標題
-          th width="11%" 立委姓名
-          th width="15%" 回報時間
-          th width="14%" 回報者 / IP
-          th width="8%" 狀態
-          th width="5%" 查看
+          th width="5%" = check_box_tag "check_all", 'yes', false, class: "check_all_box"
+          th width="11%"  關鍵字
+          th width="42%"  質詢標題
+          th width="5%"  立委姓名
+          th width="13%"  回報時間
+          th width="19%"  回報者 / ip
+          th width="5%"  查看
         - if @interpellations.any?
           - @interpellations.each do |q|
             tr 
@@ -21,6 +21,15 @@
                 td = check_box_tag "unpublished_ids[]", q.id, false, class: "published_box"
               - else
                 td = check_box_tag "unpublished_ids[]", q.id, true, class: "published_box"
+              td
+                - num = 0
+                - q.keywords.each do |k|
+                  - if num == 0
+                    - num += 1
+                  - else
+                    | 、
+                  = link_to k.name, url_for(params.merge({keyword: k.id}))
+
               td = q.title
               td
                 - q.legislators.each do |l|
@@ -31,10 +40,6 @@
                 = q.user.try(:name)
                 br
                 = q.user_ip
-              - if q.published
-                td class="c" 已發布
-              - else
-                td class="c" 未發布
               td class="c" = link_to "查看", interpellation_path(q), target: "_blank"
       #page-bar
         #page

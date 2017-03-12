@@ -12,56 +12,57 @@ body{
 img{
 	border:none;}
 a{
-	color:#058e97;}
+	color:#5DAA32;
+	text-decoration:none;}
 h1,h2,h3,h4,h5,h6,p,ul,ol{
 	font-size:1em;
 	}
 #outer{
 	overflow:hidden;}
 #all-wrap{
-	max-width:960px;
 	width:100%;
 	margin:auto;
+	background:#fff;
+	position:relative;
 	}
 #top{
-	border-bottom:1px solid #d4d4d4;
-	overflow:hidden;
-	padding:0 1000px;
-	margin:0 -1000px 15px -1000px;
-	background:#000;
+	border-bottom:1px solid #fff;	overflow:hidden;
+	padding:0 6%;
+	margin:0px;
+	background:url(../images/top-bg.jpg) -275px top no-repeat;
 }
 #main-wrap{
 	overflow:hidden;}
 #logo{
 	width:212px;
-	height:76px;
 	overflow:hidden;
-	background:url(../images/logo-fix.png) no-repeat;
-	margin:0px auto;
-	}
+	margin:0px 0 0px 16px;
+	float:left;
+	background:url(../images/logo-fix.png) no-repeat left center;
+height:60px;}
 #logo a{
 	display:block;
-	padding:100px 0 0 0;}
+	padding:100px 0 0 0;
+	}
 #first-nav li{
 	float:left;
-	border:1px solid #3c3c3c;
 	margin:0 0 0 -1px ;}
 #first-nav li:hover{
-	background:#3c3c3c;}
+	}
 #first-nav{
-	border-left:1px solid #3c3c3c;
-	margin:0 auto;
-	overflow:hidden;
-	width:800px;
-}
+	float:right;
+	}
 #first-nav li a{
 	text-decoration:none;
 	font-weight:bold;
 	display:block;
-	padding:4px 10px;
-	color:#e60012;
+			padding:4px 17px;
+			color:#000;
 			
 	}
+#first-nav li a:hover{
+color:#E60012;
+}
 #login-out-block{
 	max-width:290px;
 	width:100%;
