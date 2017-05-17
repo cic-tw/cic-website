@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 gem 'sass', '~> 3.2.19'
 gem 'devise'
 gem 'simple_form'
-gem 'slim-rails'
+gem 'slim-rails', '3.1.1'
 gem 'factory_girl_rails'
 gem 'kaminari'
 gem 'jquery-ui-rails'
