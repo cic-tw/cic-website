@@ -13,7 +13,7 @@
             ul.dropdown-menu role="menu" aria-labelledby="menu1"
               - @ad_sessions.each do |a|
                 li role="presentation"
-                  = link_to url_for(params.merge({ad_session: a.id})) do
+                  = link_to url_for(ad_session: a.id) do
                     = a.ad.name
                     i = a.name
         .data-src

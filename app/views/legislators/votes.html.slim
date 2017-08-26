@@ -12,7 +12,7 @@
           ul.dropdown-menu role="menu" aria-labelledby="menu1"
             - @ads.each do |a|
               li role="presentation"
-                = link_to url_for(params.merge({ad: a.id})) do
+                = link_to url_for(ad: a.id) do
                   = a.name
                   i #{a.term_start.strftime('%Y')} ～ #{a.term_end.strftime('%Y')}
         .data-src
@@ -22,35 +22,35 @@
     nav#sec-nav
       ul#secn01
         - if @decision == 'agree'
-          li = link_to "全部投票", url_for(params.merge({decision: nil}))
-          li = link_to "贊成", url_for(params.merge({decision: "agree"})), class: "current"
-          li = link_to "反對", url_for(params.merge({decision: "disagree"}))
-          li = link_to "棄權", url_for(params.merge({decision: "abstain"}))
-          li = link_to "沒有投票", url_for(params.merge({decision: "notvote"}))
+          li = link_to "全部投票", url_for(decision: nil)
+          li = link_to "贊成", url_for(decision: "agree"), class: "current"
+          li = link_to "反對", url_for(decision: "disagree")
+          li = link_to "棄權", url_for(decision: "abstain")
+          li = link_to "沒有投票", url_for(decision: "notvote")
         - elsif @decision == 'disagree'
-          li = link_to "全部投票", url_for(params.merge({decision: nil}))
-          li = link_to "贊成", url_for(params.merge({decision: "agree"}))
-          li = link_to "反對", url_for(params.merge({decision: "disagree"})), class: "current"
-          li = link_to "棄權", url_for(params.merge({decision: "abstain"}))
-          li = link_to "沒有投票", url_for(params.merge({decision: "notvote"}))
+          li = link_to "全部投票", url_for(decision: nil)
+          li = link_to "贊成", url_for(decision: "agree")
+          li = link_to "反對", url_for(decision: "disagree"), class: "current"
+          li = link_to "棄權", url_for(decision: "abstain")
+          li = link_to "沒有投票", url_for(decision: "notvote")
         - elsif @decision == 'abstain'
-          li = link_to "全部投票", url_for(params.merge({decision: nil}))
-          li = link_to "贊成", url_for(params.merge({decision: "agree"}))
-          li = link_to "反對", url_for(params.merge({decision: "disagree"}))
-          li = link_to "棄權", url_for(params.merge({decision: "abstain"})), class: "current"
-          li = link_to "沒有投票", url_for(params.merge({decision: "notvote"}))
+          li = link_to "全部投票", url_for(decision: nil)
+          li = link_to "贊成", url_for(decision: "agree")
+          li = link_to "反對", url_for(decision: "disagree")
+          li = link_to "棄權", url_for(decision: "abstain"), class: "current"
+          li = link_to "沒有投票", url_for(decision: "notvote")
         - elsif @decision == 'notvote'
-          li = link_to "全部投票", url_for(params.merge({decision: nil}))
-          li = link_to "贊成", url_for(params.merge({decision: "agree"}))
-          li = link_to "反對", url_for(params.merge({decision: "disagree"}))
-          li = link_to "棄權", url_for(params.merge({decision: "abstain"}))
-          li = link_to "沒有投票", url_for(params.merge({decision: "notvote"})), class: "current"
+          li = link_to "全部投票", url_for(decision: nil)
+          li = link_to "贊成", url_for(decision: "agree")
+          li = link_to "反對", url_for(decision: "disagree")
+          li = link_to "棄權", url_for(decision: "abstain")
+          li = link_to "沒有投票", url_for(decision: "notvote"), class: "current"
         - else
-          li = link_to "全部投票", url_for(params.merge({decision: nil})), class: "current"
-          li = link_to "贊成", url_for(params.merge({decision: "agree"}))
-          li = link_to "反對", url_for(params.merge({decision: "disagree"}))
-          li = link_to "棄權", url_for(params.merge({decision: "abstain"}))
-          li = link_to "沒有投票", url_for(params.merge({decision: "notvote"}))
+          li = link_to "全部投票", url_for(decision: nil), class: "current"
+          li = link_to "贊成", url_for(decision: "agree")
+          li = link_to "反對", url_for(decision: "disagree")
+          li = link_to "棄權", url_for(decision: "abstain")
+          li = link_to "沒有投票", url_for(decision: "notvote")
     .inner-content-txt
       - if @status
         .vote-group-list
@@ -94,7 +94,7 @@
               - if p == @current_page
                 span.page.current = p
               - else
-                span.page = link_to p, url_for(params.merge({page: p}))
+                span.page = link_to p, url_for(page: p}))
       - else
         .api-dead-block
           | 唉呀！目前從立委投票指南抓取資料失敗，如果想要瀏覽相關資料請直接至立委投票指南查看。
