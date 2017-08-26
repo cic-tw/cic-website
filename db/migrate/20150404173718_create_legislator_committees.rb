@@ -1,4 +1,4 @@
-class CreateLegislatorCommittees < ActiveRecord::Migration
+class CreateLegislatorCommittees < ActiveRecord::Migration[4.2]
   def change
     create_table :legislator_committees do |t|
       t.belongs_to :legislator

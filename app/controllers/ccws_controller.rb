@@ -1,5 +1,5 @@
 class CcwsController < ApplicationController
-  before_filter :set_ad_sessions
+  before_action :set_ad_sessions
   before_action :set_ad_session, except: [:index]
 
   def index
@@ -44,7 +44,7 @@ class CcwsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { 
-        render :json => {
+        render json: {
           status: "success",
           ccws: @ccws,
           count: @ad_sessions_count
@@ -70,7 +70,7 @@ class CcwsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json {render :json => {
+      format.json {render json: {
         status: "success",
         ad_session: @ad_session,
         ccw: {

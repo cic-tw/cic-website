@@ -1,4 +1,4 @@
-class LegislatorCommittee < ActiveRecord::Base
+class LegislatorCommittee < ApplicationRecord
   belongs_to :legislator
   belongs_to :committee
   belongs_to :ad_session

@@ -19,10 +19,10 @@ class InterpellationsController < ApplicationController
     else
       if user_signed_in? and current_user.admin?
         @q = Interpellation.search(params[:q])
-        @interpellations = @q.result(:distinct => true).page(params[:page])
+        @interpellations = @q.result(distinct: true).page(params[:page])
       else
         @q = Interpellation.published.search(params[:q])
-        @interpellations = @q.result(:distinct => true).page(params[:page])
+        @interpellations = @q.result(distinct: true).page(params[:page])
       end
     end
     interpellations = @interpellations.clone.to_a
@@ -57,7 +57,7 @@ class InterpellationsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
           status: "success",
           interpellations: JSON.parse(
             @interpellations.to_json({include: {
@@ -107,7 +107,7 @@ class InterpellationsController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
         status: "success",
         interpellation: JSON.parse(@interpellation.to_json({
         include: {
@@ -179,14 +179,14 @@ class InterpellationsController < ApplicationController
     def interpellation_params
       if user_signed_in? and current_user.admin?
         if @interpellation.blank? or @interpellation.new_record?
-          params.require(:interpellation).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []}, :interpellation_type, :record_url,
+          params.require(:interpellation).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []}, :interpellation_type, :record_url,
           :user_id, :ivod_url, :committee_id, :meeting_description, :date, :comment, :published, :time_start, :time_end, :target)
         else
-          params.require(:interpellation).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []}, :interpellation_type, :record_url,
+          params.require(:interpellation).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []}, :interpellation_type, :record_url,
           :ivod_url, :committee_id, :meeting_description, :date, :comment, :published, :time_start, :time_end, :target)
         end
       else
-        params.require(:interpellation).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []}, :interpellation_type, :record_url,
+        params.require(:interpellation).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []}, :interpellation_type, :record_url,
           :user_id, :ivod_url, :committee_id, :meeting_description, :date, :comment, :time_start, :time_end, :target)
       end
     end

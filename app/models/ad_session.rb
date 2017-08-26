@@ -1,4 +1,4 @@
-class AdSession < ActiveRecord::Base
+class AdSession < ApplicationRecord
   belongs_to :ad
   has_many :entries
   has_many :interpellations

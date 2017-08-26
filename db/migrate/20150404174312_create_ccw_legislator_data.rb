@@ -1,4 +1,4 @@
-class CreateCcwLegislatorData < ActiveRecord::Migration
+class CreateCcwLegislatorData < ActiveRecord::Migration[4.2]
   def change
     create_table :ccw_legislator_data do |t|
       t.belongs_to :legislator_committee

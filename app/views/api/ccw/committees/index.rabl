@@ -5,7 +5,7 @@ child(:@ad_session) do
     attributes :id, :name, :vote_date, :term_start, :term_end
   end
 end
-child(:@ccw_committee_data => :committees) do
+child(:@ccw_committee_data: :committees) do
   child(:committee) do
     attributes :id, :name
   end

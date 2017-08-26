@@ -1,6 +1,6 @@
-class Interpellation < ActiveRecord::Base
-  has_and_belongs_to_many :legislators, -> { uniq }
-  has_and_belongs_to_many :keywords, -> { uniq }
+class Interpellation < ApplicationRecord
+  has_and_belongs_to_many :legislators, index: { unique: true }
+  has_and_belongs_to_many :keywords, index: { unique: true }
   belongs_to :user
   belongs_to :committee
   belongs_to :ad_session
@@ -9,7 +9,7 @@ class Interpellation < ActiveRecord::Base
   validate :has_at_least_one_legislator
   validate :is_ivod_url
   validate :record_validate
-  delegate :ad, :to => :ad_session, :allow_nil => true
+  delegate :ad, to: :ad_session, allow_nil: true
 
   before_save :update_ivod_values, :update_ad_session_values, :update_title_values
   after_save :touch_legislators

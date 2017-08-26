@@ -1,6 +1,6 @@
-class Video < ActiveRecord::Base
-  has_and_belongs_to_many :legislators, -> { uniq }
-  has_and_belongs_to_many :keywords, -> { uniq }
+class Video < ApplicationRecord
+  has_and_belongs_to_many :legislators, index: { unique: true }
+  has_and_belongs_to_many :keywords, index: { unique: true }
   belongs_to :user
   belongs_to :committee
   belongs_to :ad_session
@@ -10,7 +10,7 @@ class Video < ActiveRecord::Base
   validates_presence_of :user_id, message: '必須有回報者'
   validate :has_at_least_one_legislator
   validate :is_youtube_url, :is_ivod_url, :news_validate
-  delegate :ad, :to => :ad_session, :allow_nil => true
+  delegate :ad, to: :ad_session, allow_nil: true
   before_save :update_youtube_values, :update_ivod_values, :update_ad_session_values
   after_save :touch_legislators
   default_scope { order(created_at: :desc) }

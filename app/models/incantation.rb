@@ -1,2 +1,2 @@
-class Incantation < ActiveRecord::Base
+class Incantation < ApplicationRecord
 end

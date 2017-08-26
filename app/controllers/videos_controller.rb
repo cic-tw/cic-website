@@ -19,10 +19,10 @@ class VideosController < ApplicationController
     else
       if user_signed_in? and current_user.admin?
         @q = Video.search(params[:q])
-        @videos = @q.result(:distinct => true).page(params[:page])
+        @videos = @q.result(distinct: true).page(params[:page])
       else
         @q = Video.published.search(params[:q])
-        @videos = @q.result(:distinct => true).page(params[:page])
+        @videos = @q.result(distinct: true).page(params[:page])
       end
     end
     videos = @videos.clone.to_a
@@ -58,7 +58,7 @@ class VideosController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
           status: "success",
           videos: JSON.parse(
             @videos.to_json({include: {
@@ -112,7 +112,7 @@ class VideosController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
         status: "success",
         video: JSON.parse(@video.to_json({
         include: {
@@ -184,16 +184,16 @@ class VideosController < ApplicationController
     def video_params
       if user_signed_in? and current_user.admin?
         if @video.blank? or @video.new_record?
-          params.require(:video).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []},
+          params.require(:video).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []},
             :user_id, :ivod_url, :committee_id, :meeting_description, :date, :youtube_url, :source_url,
             :source_name, :published, :time_start, :time_end, :target, :video_type)
         else
-          params.require(:video).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []},
+          params.require(:video).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []},
             :ivod_url, :committee_id, :meeting_description, :date, :youtube_url, :source_url,
             :source_name, :published, :time_start, :time_end, :target, :video_type)
         end
       else
-        params.require(:video).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []},
+        params.require(:video).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []},
           :user_id, :ivod_url, :committee_id, :meeting_description, :date, :youtube_url, :source_url,
           :source_name, :time_start, :time_end, :target, :video_type)
       end

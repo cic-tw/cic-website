@@ -1,4 +1,4 @@
-class Committee < ActiveRecord::Base
+class Committee < ApplicationRecord
   has_many :entries
   has_many :interpellations
   has_many :videos

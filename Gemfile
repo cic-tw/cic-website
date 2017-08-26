@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.1'
+gem 'rails', '5.1.3'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -38,23 +38,22 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'settingslogic'
 gem 'httparty'
-gem "recaptcha", :require => "recaptcha/rails"
+gem "recaptcha", require: "recaptcha/rails"
 gem 'ckeditor', '4.1.2'
 gem 'ransack'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'meta-tags', '~> 2.0.0'
+gem 'meta-tags'
 gem 'unicode-display_width'
 gem 'jquery-timepicker-rails'
 gem 'magnific-popup-rails'
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails-i18n', '~> 5.0.0'
 gem 'social-share-button'
 gem 'redis', '3.2.2'
 gem "twitter-bootstrap-rails"
 gem 'rabl-rails'
 gem 'responders', '~> 2.0'
-gem 'swagger-docs', git: 'git://github.com/billy3321/swagger-docs.git'
 gem 'lograge'
 gem 'rollbar', '~>2.11.3'
 gem 'oj', '~> 2.12.14'
