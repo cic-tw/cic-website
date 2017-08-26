@@ -27,7 +27,7 @@ class Video < ApplicationRecord
     unless youtube_id
       self.youtube_url = nil
       errors.add(:base, 'youtube網址錯誤')
-      return false
+      throw(:abort)
     end
     if self.youtube_id == youtube_id
       # means that youtube is the same, no need to update.
@@ -41,7 +41,7 @@ class Video < ApplicationRecord
     unless result['items'].any?
       self.youtube_url = nil
       errors.add(:base, 'youtube網址錯誤')
-      return false
+      throw(:abort)
     end
     if result['items'][0]['snippet']['thumbnails'].key?('maxres')
       self.image = result['items'][0]['snippet']['thumbnails']['maxres']['url']
@@ -76,11 +76,11 @@ class Video < ApplicationRecord
       # the ivod url is error
       self.ivod_url = nil
       errors.add(:base, 'ivod網址錯誤')
-      return false
+      throw(:abort)
     elsif info_section.css('p')[3].text == '第屆 第會期'
       self.ivod_url = nil
       errors.add(:base, 'ivod網址錯誤')
-      return false
+      throw(:abort)
     end
     self.ivod_url.sub!(/300K$/, '1M')
     committee_name = info_section.css('h4').text.sub('主辦單位 ：', '').strip
@@ -122,7 +122,7 @@ class Video < ApplicationRecord
     else
       self.youtube_url = nil
       errors.add(:base, 'youtube網址錯誤')
-      return false
+      throw(:abort)
     end
   end
 
@@ -139,7 +139,7 @@ class Video < ApplicationRecord
       errors.add(:base, 'youtube網址無法存取') unless HTTParty.get(self.youtube_url).code == 200
     rescue
       errors.add(:base, 'youtube網址錯誤')
-      return false
+      throw(:abort)
     end
   end
 
@@ -149,7 +149,7 @@ class Video < ApplicationRecord
         return true
       else
         errors.add(:base, '必須填寫ivod出處網址')
-        return false
+        throw(:abort)
       end
     end
     begin
@@ -158,7 +158,7 @@ class Video < ApplicationRecord
       errors.add(:base, 'ivod網址無法存取') unless HTTParty.get(self.ivod_url).code == 200
     rescue
       errors.add(:base, 'ivod網址錯誤')
-      return false
+      throw(:abort)
     end
   end
 
@@ -187,7 +187,7 @@ class Video < ApplicationRecord
         errors.add(:base, '必須填寫新聞來源名稱')
       end
       if error == 1
-        return false
+        throw(:abort)
       else
         return true
       end
@@ -198,7 +198,7 @@ class Video < ApplicationRecord
         errors.add(:base, '必須填寫影片製作日期')
       end
       if error == 1
-        return false
+        throw(:abort)
       else
         return true
       end

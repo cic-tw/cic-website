@@ -33,11 +33,11 @@ class Interpellation < ApplicationRecord
       # the ivod url is error
       self.ivod_url = nil
       errors.add(:base, 'ivod網址錯誤')
-      return false
+      throw(:abort)
     elsif info_section.css('p')[3].text == '第屆 第會期'
       self.ivod_url = nil
       errors.add(:base, 'ivod網址錯誤')
-      return false
+      throw(:abort)
     end
     self.ivod_url.sub!(/300K$/, '1M')
     committee_name = info_section.css('h4').text.sub('主辦單位 ：', '').strip
@@ -91,7 +91,7 @@ class Interpellation < ApplicationRecord
         return true
       else
         errors.add(:base, '必須填寫ivod出處網址')
-        return false
+        throw(:abort)
       end
     end
     begin
@@ -132,7 +132,7 @@ class Interpellation < ApplicationRecord
         errors.add(:base, '請填寫標題')
       end
       if error == 1
-        return false
+        throw(:abort)
       else
         return true
       end
