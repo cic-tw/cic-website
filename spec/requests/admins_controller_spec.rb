@@ -6,9 +6,9 @@ describe "Admin" do
   let(:admin) { FactoryGirl.create(:admin) }
   let(:new_admin) do
     {
-      :title => "new_admin_title",
-      :legislator_ids => [ FactoryGirl.create(:legislator).id ],
-      :ivod_url => 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
+      title: "new_admin_title",
+      legislator_ids: [ FactoryGirl.create(:legislator).id ],
+      ivod_url: 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
     }
   end
 
@@ -77,7 +77,7 @@ describe "Admin" do
           interpellation_ids: [interpellation1.id, interpellation2.id, interpellation3.id],
           unpublished_ids: [interpellation1.id, interpellation3.id]
         }
-        put "/admin/update_interpellations", update_data
+        put "/admin/update_interpellations", params: update_data
         expect(response).to be_redirect
         expect(Interpellation.published).to eq([interpellation2])
       end
@@ -92,7 +92,7 @@ describe "Admin" do
           video_ids: [video1.id, video2.id, video3.id],
           unpublished_ids: [video1.id, video3.id]
         }
-        put "/admin/update_videos", update_data
+        put "/admin/update_videos", params: update_data
         expect(response).to be_redirect
         expect(Video.published).to eq([video2])
       end
@@ -107,7 +107,7 @@ describe "Admin" do
           entry_ids: [entry1.id, entry2.id, entry3.id],
           unpublished_ids: [entry1.id, entry3.id]
         }
-        put "/admin/update_entries", update_data
+        put "/admin/update_entries", params: update_data
         expect(response).to be_redirect
         expect(Entry.published).to eq([entry2])
       end

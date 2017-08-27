@@ -19,10 +19,10 @@ class EntriesController < ApplicationController
     else
       if user_signed_in? and current_user.admin?
         @q = Entry.search(params[:q])
-        @entries = @q.result(:distinct => true).page(params[:page])
+        @entries = @q.result(distinct: true).page(params[:page])
       else
         @q = Entry.published.search(params[:q])
-        @entries = @q.result(:distinct => true).page(params[:page])
+        @entries = @q.result(distinct: true).page(params[:page])
       end
     end
     entries = @entries.clone.to_a
@@ -57,7 +57,7 @@ class EntriesController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
           status: "success",
           entries: JSON.parse(
             @entries.to_json({include: {
@@ -105,7 +105,7 @@ class EntriesController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
         status: "success",
         entry: JSON.parse(@entry.to_json({
         include: {
@@ -174,14 +174,14 @@ class EntriesController < ApplicationController
     def entry_params
       if user_signed_in? and current_user.admin?
         if @entry.blank? or @entry.new_record?
-          params.require(:entry).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []},
+          params.require(:entry).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []},
             :user_id, :date, :source_name, :source_url, :published)
         else
-          params.require(:entry).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []},
+          params.require(:entry).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []},
             :date, :source_name, :source_url, :published)
         end
       else
-        params.require(:entry).permit(:title, :content, {:legislator_ids => []}, {:keyword_ids => []},
+        params.require(:entry).permit(:title, :content, {legislator_ids: []}, {keyword_ids: []},
           :user_id, :date, :source_name, :source_url)
       end
     end

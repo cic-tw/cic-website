@@ -2,4 +2,4 @@
   h2 新增關鍵字
   .inner-list
     = simple_form_for(@keyword) do |f|
-      = render :partial => 'form', :locals => { :f => f }
+      = render partial: 'form', locals: { f: f }

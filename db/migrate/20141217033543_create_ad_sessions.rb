@@ -1,4 +1,4 @@
-class CreateAdSessions < ActiveRecord::Migration
+class CreateAdSessions < ActiveRecord::Migration[4.2]
   def change
     create_table :ad_sessions do |t|
       t.string :name

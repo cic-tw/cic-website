@@ -1,4 +1,4 @@
-class CreateVideos < ActiveRecord::Migration
+class CreateVideos < ActiveRecord::Migration[4.2]
   def change
     create_table :videos do |t|
       t.string :title
@@ -18,7 +18,7 @@ class CreateVideos < ActiveRecord::Migration
       t.time :time_end
       t.date :date
       t.string :user_ip
-      t.boolean :published, :default => true
+      t.boolean :published, default: true
 
       t.timestamps
     end

@@ -5,7 +5,7 @@ child(:@ad_session) do
     attributes :id, :name, :vote_date, :term_start, :term_end
   end
 end
-child(:@ccw_legislator_datum => :legislator) do
+child(:@ccw_legislator_datum: :legislator) do
   glue(:legislator) do
     attributes :id, :name, :image
     child(:party) do
@@ -22,7 +22,7 @@ child(:@ccw_legislator_datum => :legislator) do
   attributes :special, :conflict_expose, :allow_visitor, :human_rights_infringing_bill, :human_rights_infringing_budgetary
   attributes :judicial_case, :disorder
 end
-child(:@sc_committee_datum => :sc_committee) do
+child(:@sc_committee_datum: :sc_committee) do
   child(:committee) do
     attributes id: :id
     attributes name: :name
@@ -30,14 +30,14 @@ child(:@sc_committee_datum => :sc_committee) do
   attributes :should_attendance, :actually_average_attendance
   attributes :avaliable_interpellation_count, :actually_average_interpellation_count
 end
-child(:@yc_committee_datum => :yc_committee) do
+child(:@yc_committee_datum: :yc_committee) do
   child(:committee) do
     attributes id: :id
     attributes name: :name
   end
   attributes :should_attendance, :actually_average_attendance
 end
-child(:@ccw_citizen_score => :citizen_score) do
+child(:@ccw_citizen_score: :citizen_score) do
   attributes :total, :average
 end
 node(:status) {"success"}

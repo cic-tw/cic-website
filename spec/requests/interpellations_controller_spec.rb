@@ -9,11 +9,11 @@ describe "Interpellation" do
   let(:committee) { FactoryGirl.create(:committee, name: "內政委員會") }
   let(:new_interpellation) do
     {
-      :title => "new_interpellation_title",
-      :content => "new_interpellation_content",
-      :legislator_ids => [ FactoryGirl.create(:legislator).id ],
-      :interpellation_type => 'ivod',
-      :ivod_url => 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
+      title: "new_interpellation_title",
+      content: "new_interpellation_content",
+      legislator_ids: [ FactoryGirl.create(:legislator).id ],
+      interpellation_type: 'ivod',
+      ivod_url: 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
     }
   end
 
@@ -75,7 +75,7 @@ describe "Interpellation" do
 
     describe "#create" do
       it "redirect" do
-        post "/interpellations", :interpellation => new_interpellation
+        post "/interpellations", params: { interpellation: new_interpellation }
         expect(response).to be_redirect
       end
     end
@@ -83,8 +83,8 @@ describe "Interpellation" do
     describe "#update" do
       it "redirect" do
         interpellation
-        update_data = { :title => "new_title" }
-        put "/interpellations/#{interpellation.id}", :interpellation => update_data
+        update_data = { title: "new_title" }
+        put "/interpellations/#{interpellation.id}", params: { interpellation: update_data }
         expect(response).to be_redirect
       end
     end
@@ -143,7 +143,7 @@ describe "Interpellation" do
       it "success" do
         new_interpellation[:user_id] = user.id
         expect {
-          post "/interpellations", :interpellation => new_interpellation
+          post "/interpellations", params: { interpellation: new_interpellation }
         }.to change { Interpellation.count }.by(1)
         expect(response).to be_redirect
       end
@@ -152,8 +152,8 @@ describe "Interpellation" do
     describe "#update" do
       it "success" do
         interpellation
-        update_data = { :title => "new_title" }
-        put "/interpellations/#{interpellation.id}", :interpellation => update_data
+        update_data = { title: "new_title" }
+        put "/interpellations/#{interpellation.id}", params: { interpellation: update_data }
         expect(response).to be_redirect
         interpellation.reload
         expect(interpellation.title).to match(update_data[:title])
@@ -165,8 +165,8 @@ describe "Interpellation" do
         interpellation
         interpellation.published = false
         interpellation.save
-        update_data = { :published => true }
-        put "/interpellations/#{interpellation.id}", :interpellation => update_data
+        update_data = { published: true }
+        put "/interpellations/#{interpellation.id}", params: { interpellation: update_data }
         expect(response).to be_redirect
         interpellation.reload
         expect(interpellation.published).to eq(false)
@@ -198,8 +198,8 @@ describe "Interpellation" do
     describe "#update" do
       it "failed" do
         interpellation
-        update_data = { :title => "new_title" }
-        put "/interpellations/#{interpellation.id}", :interpellation => update_data
+        update_data = { title: "new_title" }
+        put "/interpellations/#{interpellation.id}", params: { interpellation: update_data }
         expect(response).to be_redirect
       end
     end
@@ -253,7 +253,7 @@ describe "Interpellation" do
       it "success" do
         new_interpellation[:user_id] = admin.id
         expect {
-          post "/interpellations", :interpellation => new_interpellation
+          post "/interpellations", params: { interpellation: new_interpellation }
         }.to change { Interpellation.count }.by(1)
         expect(response).to be_redirect
       end
@@ -262,8 +262,8 @@ describe "Interpellation" do
     describe "#update" do
       it "success" do
         interpellation
-        update_data = { :title => "new_title" }
-        put "/interpellations/#{interpellation.id}", :interpellation => update_data
+        update_data = { title: "new_title" }
+        put "/interpellations/#{interpellation.id}", params: { interpellation: update_data }
         expect(response).to be_redirect
         interpellation.reload
         expect(interpellation.title).to match(update_data[:title])
@@ -275,8 +275,8 @@ describe "Interpellation" do
         interpellation
         interpellation.published = false
         interpellation.save
-        update_data = { :published => true }
-        put "/interpellations/#{interpellation.id}", :interpellation => update_data
+        update_data = { published: true }
+        put "/interpellations/#{interpellation.id}", params: { interpellation: update_data }
         expect(response).to be_redirect
         interpellation.reload
         expect(interpellation.published).to eq(true)

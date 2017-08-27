@@ -39,7 +39,7 @@ class LegislatorsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json {render :json => {
+      format.json {render json: {
         status: "success",
         legislators: JSON.parse(@legislators.to_json(
           except: [:description, :now_party_id, :created_at, :updated_at],
@@ -88,7 +88,7 @@ class LegislatorsController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.json {render :json => {
+      format.json {render json: {
         status: "success",
         legislators: JSON.parse(@legislators.to_json(
           except: [:description, :now_party_id, :created_at, :updated_at],
@@ -138,7 +138,7 @@ class LegislatorsController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.json {render :json => {
+      format.json {render json: {
         status: "success",
         legislators: JSON.parse(@legislators.to_json(
           except: [:associations_count, :description, :now_party_id, :created_at, :updated_at],
@@ -173,7 +173,7 @@ class LegislatorsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json {render :json => {
+      format.json {render json: {
         status: "success",
         legislator: JSON.parse(@legislator.to_json(
         except: [:description, :now_party_id, :created_at, :updated_at],
@@ -223,7 +223,7 @@ class LegislatorsController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
           status: "success",
           entries: JSON.parse(@entries.to_json({except: [:user_id, :user_ip, :published]})),
           count: @legislator.entries.published.count
@@ -265,7 +265,7 @@ class LegislatorsController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
           status: "success",
           interpellations: JSON.parse(
             @interpellations.to_json({include: {
@@ -314,7 +314,7 @@ class LegislatorsController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.json { render :json => {
+      format.json { render json: {
           status: "success",
           videos: JSON.parse(
             @videos.to_json({include: {
@@ -519,7 +519,7 @@ class LegislatorsController < ApplicationController
           @title = ad.name + @title
         end
       end
-      @elections = @q.result(:distinct => true).all
+      @elections = @q.result(distinct: true).all
     end
   end
 

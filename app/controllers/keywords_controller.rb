@@ -6,7 +6,7 @@ class KeywordsController < ApplicationController
   # GET /keywords
   def index
     @q = Keyword.search(params[:q])
-    @keywords = @q.result(:distinct => true).page(params[:page])
+    @keywords = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /keywords/1

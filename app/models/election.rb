@@ -1,9 +1,9 @@
-class Election < ActiveRecord::Base
+class Election < ApplicationRecord
   belongs_to :ad
   belongs_to :legislator
   belongs_to :party
   belongs_to :county
-  has_and_belongs_to_many :districts, -> { uniq }
+  has_and_belongs_to_many :districts, index: { unique: true }
   validates_presence_of :ad_id, :legislator_id, :party_id, :constituency
 
   default_scope { order(ad_id: :asc).order(id: :asc) }

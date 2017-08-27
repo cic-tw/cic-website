@@ -22,5 +22,7 @@ module CicWebsite
     config.i18n.default_locale = "zh-TW"
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.exceptions_app = self.routes
+
+    config.assets.unknown_asset_fallback = true
   end
 end

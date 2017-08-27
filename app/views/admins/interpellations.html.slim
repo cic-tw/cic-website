@@ -28,7 +28,7 @@
                     - num += 1
                   - else
                     | 、
-                  = link_to k.name, url_for(params.merge({keyword: k.id}))
+                  = link_to k.name, url_for(keyword: k.id)
 
               td = q.title
               td

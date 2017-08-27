@@ -15,8 +15,8 @@ describe Video do
   end
 
   it "#ivod_update_vod_work" do
-    committee = FactoryGirl.create(:committee, :name => '內政委員會')
-    legislator = FactoryGirl.create(:legislator, :name => '陳節如')
+    committee = FactoryGirl.create(:committee, name: '內政委員會')
+    legislator = FactoryGirl.create(:legislator, name: '陳節如')
     video = FactoryGirl.build(:video_ivod)
     video.ivod_url = 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
     video.update_ivod_values
@@ -28,7 +28,7 @@ describe Video do
   end
 
   it "#ivod_update_full_work" do
-    committee = FactoryGirl.create(:committee, :name => '社會福利及衛生環境委員會')
+    committee = FactoryGirl.create(:committee, name: '社會福利及衛生環境委員會')
     video = FactoryGirl.build(:video_ivod)
     video.ivod_url = 'http://ivod.ly.gov.tw/Play/Full/7648/300K'
     video.update_ivod_values

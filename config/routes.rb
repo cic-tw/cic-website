@@ -63,8 +63,6 @@ Rails.application.routes.draw do
     match 'update_videos',    to: 'admins#update_videos',    via: 'put'
   end
 
-  get '/api' => redirect('/swagger/dist/index.html?url=/apidocs/api-docs.json')
-
   namespace :api, defaults: { format: 'json' } do
     resources :legislators, only: [:show, :index] do
       member do

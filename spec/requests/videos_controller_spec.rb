@@ -8,14 +8,14 @@ describe "Video" do
   let(:video) { FactoryGirl.create(:video_news, user: user) }
   let(:new_video) do
     {
-      :title => "new_video_title",
-      :legislator_ids => [ FactoryGirl.create(:legislator).id ],
-      :ivod_url => 'http://ivod.ly.gov.tw/Play/VOD/77018/300K',
-      :youtube_url => 'https://www.youtube.com/watch?v=6tg_I9O-dV0',
-      :video_type => 'news',
-      :source_url => "http://www.google.com",
-      :date => Date.today,
-      :source_name => 'Google'
+      title: "new_video_title",
+      legislator_ids: [ FactoryGirl.create(:legislator).id ],
+      ivod_url: 'http://ivod.ly.gov.tw/Play/VOD/77018/300K',
+      youtube_url: 'https://www.youtube.com/watch?v=6tg_I9O-dV0',
+      video_type: 'news',
+      source_url: "http://www.google.com",
+      date: Date.today,
+      source_name: 'Google'
     }
   end
 
@@ -84,7 +84,7 @@ describe "Video" do
 
     describe "#create" do
       it "redirect" do
-        post "/videos", :video => new_video
+        post "/videos", params: { video: new_video }
         expect(response).to be_redirect
       end
     end
@@ -92,8 +92,8 @@ describe "Video" do
     describe "#update" do
       it "redirect" do
         video
-        update_data = { :title => "new_title" }
-        put "/videos/#{video.id}", :video => update_data
+        update_data = { title: "new_title" }
+        put "/videos/#{video.id}", params: { video: update_data }
         expect(response).to be_redirect
       end
     end
@@ -152,7 +152,7 @@ describe "Video" do
       it "success" do
         new_video[:user_id] = user.id
         expect {
-          post "/videos", :video => new_video
+          post "/videos", params: { video: new_video }
         }.to change { Video.count }.by(1)
         expect(response).to be_redirect
       end
@@ -161,8 +161,8 @@ describe "Video" do
     describe "#update" do
       it "success" do
         video
-        update_data = { :title => "new_title" }
-        put "/videos/#{video.id}", :video => update_data
+        update_data = { title: "new_title" }
+        put "/videos/#{video.id}", params: { video: update_data }
         expect(response).to be_redirect
         video.reload
         expect(video.title).to match(update_data[:title])
@@ -174,8 +174,8 @@ describe "Video" do
         video
         video.published = false
         video.save
-        update_data = { :published => true }
-        put "/videos/#{video.id}", :video => update_data
+        update_data = { published: true }
+        put "/videos/#{video.id}", params: { video: update_data }
         expect(response).to be_redirect
         video.reload
         expect(video.published).to eq(false)
@@ -207,8 +207,8 @@ describe "Video" do
     describe "#update" do
       it "failed" do
         video
-        update_data = { :title => "new_title" }
-        put "/videos/#{video.id}", :video => update_data
+        update_data = { title: "new_title" }
+        put "/videos/#{video.id}", params: { video: update_data }
         expect(response).to be_redirect
       end
     end
@@ -262,7 +262,7 @@ describe "Video" do
       it "success" do
         new_video[:user_id] = admin.id
         expect {
-          post "/videos", :video => new_video
+          post "/videos", params: { video: new_video }
         }.to change { Video.count }.by(1)
         expect(response).to be_redirect
       end
@@ -271,8 +271,8 @@ describe "Video" do
     describe "#update" do
       it "success" do
         video
-        update_data = { :title => "new_title" }
-        put "/videos/#{video.id}", :video => update_data
+        update_data = { title: "new_title" }
+        put "/videos/#{video.id}", params: { video: update_data }
         expect(response).to be_redirect
         video.reload
         expect(video.title).to match(update_data[:title])
@@ -284,8 +284,8 @@ describe "Video" do
         video
         video.published = false
         video.save
-        update_data = { :published => true }
-        put "/videos/#{video.id}", :video => update_data
+        update_data = { published: true }
+        put "/videos/#{video.id}", params: { video: update_data }
         expect(response).to be_redirect
         video.reload
         expect(video.published).to eq(true)

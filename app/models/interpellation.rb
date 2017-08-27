@@ -1,6 +1,6 @@
-class Interpellation < ActiveRecord::Base
-  has_and_belongs_to_many :legislators, -> { uniq }
-  has_and_belongs_to_many :keywords, -> { uniq }
+class Interpellation < ApplicationRecord
+  has_and_belongs_to_many :legislators, index: { unique: true }
+  has_and_belongs_to_many :keywords, index: { unique: true }
   belongs_to :user
   belongs_to :committee
   belongs_to :ad_session
@@ -9,7 +9,7 @@ class Interpellation < ActiveRecord::Base
   validate :has_at_least_one_legislator
   validate :is_ivod_url
   validate :record_validate
-  delegate :ad, :to => :ad_session, :allow_nil => true
+  delegate :ad, to: :ad_session, allow_nil: true
 
   before_save :update_ivod_values, :update_ad_session_values, :update_title_values
   after_save :touch_legislators
@@ -33,11 +33,11 @@ class Interpellation < ActiveRecord::Base
       # the ivod url is error
       self.ivod_url = nil
       errors.add(:base, 'ivod網址錯誤')
-      return false
+      throw(:abort)
     elsif info_section.css('p')[3].text == '第屆 第會期'
       self.ivod_url = nil
       errors.add(:base, 'ivod網址錯誤')
-      return false
+      throw(:abort)
     end
     self.ivod_url.sub!(/300K$/, '1M')
     committee_name = info_section.css('h4').text.sub('主辦單位 ：', '').strip
@@ -91,7 +91,7 @@ class Interpellation < ActiveRecord::Base
         return true
       else
         errors.add(:base, '必須填寫ivod出處網址')
-        return false
+        throw(:abort)
       end
     end
     begin
@@ -132,7 +132,7 @@ class Interpellation < ActiveRecord::Base
         errors.add(:base, '請填寫標題')
       end
       if error == 1
-        return false
+        throw(:abort)
       else
         return true
       end

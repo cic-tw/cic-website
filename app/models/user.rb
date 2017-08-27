@@ -1,9 +1,9 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :lockable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_many :entries
   has_many :interpellations
@@ -16,11 +16,11 @@ class User < ActiveRecord::Base
   default_scope { order(created_at: :desc) }
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :provider_uid => auth.uid).first
+    user = User.where(provider: auth.provider, provider_uid: auth.uid).first
     if user
       return user
     else
-      registered_user = User.where(:email => auth.info.email).first
+      registered_user = User.where(email: auth.info.email).first
       if registered_user
         registered_user.provider = auth.provider
         registered_user.provider_uid = auth.uid
@@ -39,11 +39,11 @@ class User < ActiveRecord::Base
 
   def self.find_for_google_oauth2(auth, signed_in_resource=nil)
     data = auth.info
-    user = User.where(:provider => auth.provider, :provider_uid => auth.uid ).first
+    user = User.where(provider: auth.provider, provider_uid: auth.uid ).first
     if user
       return user
     else
-      registered_user = User.where(:email => auth.info.email).first
+      registered_user = User.where(email: auth.info.email).first
       if registered_user
         registered_user.provider = auth.provider
         registered_user.provider_uid = auth.uid

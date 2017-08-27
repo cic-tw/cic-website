@@ -1,4 +1,4 @@
-class CreateCcwCommitteeData < ActiveRecord::Migration
+class CreateCcwCommitteeData < ActiveRecord::Migration[4.2]
   def change
     create_table :ccw_committee_data do |t|
       t.belongs_to :ad_session

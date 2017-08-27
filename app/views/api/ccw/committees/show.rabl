@@ -5,7 +5,7 @@ child(:@ad_session) do
     attributes :id, :name, :vote_date, :term_start, :term_end
   end
 end
-child(:@ccw_committee_datum => :committee) do
+child(:@ccw_committee_datum: :committee) do
   child(:committee) do
     attributes id: :id
     attributes name: :name
@@ -18,7 +18,7 @@ child(:@ccw_committee_datum => :committee) do
     c.actually_average_interpellation_count
   end
 end
-child(:@ccw_legislator_data => :legislators) do
+child(@ccw_legislator_data: :legislators) do
   glue(:legislator) do
     attributes :id, :name, :image
     child(:party) do

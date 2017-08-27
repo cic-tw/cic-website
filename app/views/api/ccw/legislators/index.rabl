@@ -6,7 +6,7 @@ child(:@ad_session) do
     attributes :id, :name, :vote_date, :term_start, :term_end
   end
 end
-child(:@ccw_legislator_data => :legislators) do
+child(:@ccw_legislator_data: :legislators) do
   glue(:legislator) do
     attributes :id, :name, :image
     child(:party) do

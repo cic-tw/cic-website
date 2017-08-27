@@ -1,4 +1,4 @@
-class CreateQuestions < ActiveRecord::Migration
+class CreateQuestions < ActiveRecord::Migration[4.2]
   def change
     create_table :questions do |t|
       t.string :title
@@ -14,7 +14,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.date :date
       t.text :comment
       t.string :user_ip
-      t.boolean :published, :default => true
+      t.boolean :published, default: true
 
       t.timestamps
     end

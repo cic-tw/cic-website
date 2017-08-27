@@ -110,8 +110,8 @@ class AdminsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def admin_params
-    params.permit({:entry_ids => []}, {:interpellation_ids => []},
-      {:video_ids => []}, {:unpublished_ids => []}, :date)
+    params.permit({entry_ids: []}, {interpellation_ids: []},
+      {video_ids: []}, {unpublished_ids: []}, :date)
   end
 
   def get_days_from_month(date)

@@ -1,5 +1,5 @@
 class CcwCommitteesController < ApplicationController
-  before_filter :find_ad_session, :set_ad_sessions
+  before_action :find_ad_session, :set_ad_sessions
   before_action :set_committee, except: [:index]
 
   def show
@@ -33,7 +33,6 @@ class CcwCommitteesController < ApplicationController
 
   def index
     @committees = @ad_session.sc_committees
-    @committees.unshift(Committee.where(kind: 'yc').first)
     @ccw_committee_data = @ad_session.ccw_committee_data.includes(:committee)
 
     set_meta_tags({

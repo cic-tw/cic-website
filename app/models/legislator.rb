@@ -1,4 +1,4 @@
-class Legislator < ActiveRecord::Base
+class Legislator < ApplicationRecord
   has_many :elections
   has_many :ads, through: :elections
   has_many :parties, through: :elections
@@ -6,9 +6,9 @@ class Legislator < ActiveRecord::Base
   has_many :committees, through: :legislator_committees
   has_many :ad_sessions, through: :legislator_committees
   has_many :ccw_legislator_data, through: :legislator_committees
-  has_and_belongs_to_many :entries, -> { uniq }
-  has_and_belongs_to_many :interpellations, -> { uniq }
-  has_and_belongs_to_many :videos, -> { uniq }
+  has_and_belongs_to_many :entries, index: { unique: true }
+  has_and_belongs_to_many :interpellations, index: { unique: true }
+  has_and_belongs_to_many :videos, index: { unique: true }
   validates_presence_of :name
   default_scope { order(name: :asc) }
 

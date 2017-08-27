@@ -1,4 +1,4 @@
-class RenameAttendCountToAttendance < ActiveRecord::Migration
+class RenameAttendCountToAttendance < ActiveRecord::Migration[4.2]
   def change
     rename_column :ccw_committee_data, :should_attend_count, :should_attendance
     rename_column :ccw_committee_data, :actually_average_attend_count, :actually_average_attendance

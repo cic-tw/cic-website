@@ -31,14 +31,13 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
-  config.action_mailer.smtp_settings = { :address => "127.0.0.1", :port => 1025 }
+  config.action_mailer.smtp_settings = { address: "127.0.0.1", port: 1025 }
   config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default charset: "utf-8"
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
-  config.active_record.raise_in_transactional_callbacks = true
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

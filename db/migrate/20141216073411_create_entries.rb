@@ -1,4 +1,4 @@
-class CreateEntries < ActiveRecord::Migration
+class CreateEntries < ActiveRecord::Migration[4.2]
   def change
     create_table :entries do |t|
       t.string :title
@@ -8,7 +8,7 @@ class CreateEntries < ActiveRecord::Migration
       t.string :source_name
       t.date :date
       t.string :user_ip
-      t.boolean :published, :default => true
+      t.boolean :published, default: true
 
       t.timestamps
     end

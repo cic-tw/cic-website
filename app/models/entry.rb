@@ -1,11 +1,11 @@
-class Entry < ActiveRecord::Base
-  has_and_belongs_to_many :legislators, -> { uniq }
-  has_and_belongs_to_many :keywords, -> { uniq }
+class Entry < ApplicationRecord
+  has_and_belongs_to_many :legislators, index: { unique: true }
+  has_and_belongs_to_many :keywords, index: { unique: true }
   belongs_to :user
   belongs_to :committee
   validate :has_at_least_one_legislator
   validate :is_source_url
-  delegate :ad, :to => :ad_session, :allow_nil => true
+  delegate :ad, to: :ad_session, allow_nil: true
   after_save :touch_legislators
   default_scope { order(created_at: :desc) }
   validates_presence_of :title, message: '請填寫標題'

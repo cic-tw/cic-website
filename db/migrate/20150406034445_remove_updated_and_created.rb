@@ -1,4 +1,4 @@
-class RemoveUpdatedAndCreated < ActiveRecord::Migration
+class RemoveUpdatedAndCreated < ActiveRecord::Migration[4.2]
   def change
     remove_column :ad_sessions, :created_at, :datetime
     remove_column :ad_sessions, :updated_at, :datetime

@@ -1,4 +1,4 @@
-class AddLinksToLegislators < ActiveRecord::Migration
+class AddLinksToLegislators < ActiveRecord::Migration[4.2]
   def change
     add_column :legislators, :fb_link,    :string
     add_column :legislators, :wiki_link,  :string

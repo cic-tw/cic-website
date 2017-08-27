@@ -21,7 +21,7 @@ Rails.application.configure do
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   # config.serve_static_assets = false
-  config.serve_static_files = false
+  config.public_file_server.enabled = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -71,14 +71,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default charset: "utf-8"
   ActionMailer::Base.smtp_settings = {
-    :port           => Setting.smtp_settings.port,
-    :address        => Setting.smtp_settings.address,
-    :domain         => Setting.smtp_settings.domain,
-    :user_name      => Setting.smtp_settings.user_name,
-    :password       => Setting.smtp_settings.password,
-    :authentication => Setting.smtp_settings.authentication
+    port          : Setting.smtp_settings.port,
+    address       : Setting.smtp_settings.address,
+    domain        : Setting.smtp_settings.domain,
+    user_name     : Setting.smtp_settings.user_name,
+    password      : Setting.smtp_settings.password,
+    authentication: Setting.smtp_settings.authentication
   }
 
   # Disable automatic flushing of the log to improve performance.
@@ -98,5 +98,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => Setting.url.host, :protocol => Setting.url.protocol }
+  config.action_mailer.default_url_options = { host: Setting.url.host, protocol: Setting.url.protocol }
 end

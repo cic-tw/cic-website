@@ -1,4 +1,4 @@
-class CreateCcwCitizenScores < ActiveRecord::Migration
+class CreateCcwCitizenScores < ActiveRecord::Migration[4.2]
   def change
     create_table :ccw_citizen_scores do |t|
       t.belongs_to :ad_session

@@ -1,4 +1,4 @@
-class CreateLegislators < ActiveRecord::Migration
+class CreateLegislators < ActiveRecord::Migration[4.2]
   def change
     create_table :legislators do |t|
       t.string :name

@@ -8,12 +8,12 @@ describe "Entry" do
   let(:entry) { FactoryGirl.create(:entry, user: user) }
   let(:new_entry) do
     {
-      :title => "new_entry_title",
-      :content => "new_entry_content",
-      :legislator_ids => [ FactoryGirl.create(:legislator).id ],
-      :source_url => "http://www.google.com/",
-      :source_name => "new_entry_source_name",
-      :date => Date.today
+      title: "new_entry_title",
+      content: "new_entry_content",
+      legislator_ids: [ FactoryGirl.create(:legislator).id ],
+      source_url: "http://www.google.com/",
+      source_name: "new_entry_source_name",
+      date: Date.today
     }
   end
 
@@ -82,7 +82,7 @@ describe "Entry" do
 
     describe "#create" do
       it "redirect" do
-        post "/entries", :entry => new_entry
+        post "/entries", params: { entry: new_entry }
         expect(response).to be_redirect
       end
     end
@@ -90,8 +90,8 @@ describe "Entry" do
     describe "#update" do
       it "redirect" do
         entry
-        update_data = { :title => "new_title" }
-        put "/entries/#{entry.id}", :entry => update_data
+        update_data = { title: "new_title" }
+        put "/entries/#{entry.id}", params: { entry: update_data }
         expect(response).to be_redirect
       end
     end
@@ -150,7 +150,7 @@ describe "Entry" do
       it "success" do
         new_entry[:user_id] = user.id
         expect {
-          post "/entries", :entry => new_entry
+          post "/entries", params: { entry: new_entry }
         }.to change { Entry.count }.by(1)
         expect(response).to be_redirect
       end
@@ -159,8 +159,8 @@ describe "Entry" do
     describe "#update" do
       it "success" do
         entry
-        update_data = { :title => "new_title" }
-        put "/entries/#{entry.id}", :entry => update_data
+        update_data = { title: "new_title" }
+        put "/entries/#{entry.id}", params: { entry: update_data }
         expect(response).to be_redirect
         entry.reload
         expect(entry.title).to match(update_data[:title])
@@ -172,8 +172,8 @@ describe "Entry" do
         entry
         entry.published = false
         entry.save
-        update_data = { :published => true }
-        put "/entries/#{entry.id}", :entry => update_data
+        update_data = { published: true }
+        put "/entries/#{entry.id}", params: { entry: update_data }
         expect(response).to be_redirect
         entry.reload
         expect(entry.published).to eq(false)
@@ -205,8 +205,8 @@ describe "Entry" do
     describe "#update" do
       it "failed" do
         entry
-        update_data = { :title => "new_title" }
-        put "/entries/#{entry.id}", :entry => update_data
+        update_data = { title: "new_title" }
+        put "/entries/#{entry.id}", params: { entry: update_data }
         expect(response).to be_redirect
       end
     end
@@ -260,7 +260,7 @@ describe "Entry" do
       it "success" do
         new_entry[:user_id] = admin.id
         expect {
-          post "/entries", :entry => new_entry
+          post "/entries", params: { entry: new_entry }
         }.to change { Entry.count }.by(1)
         expect(response).to be_redirect
       end
@@ -269,8 +269,8 @@ describe "Entry" do
     describe "#update" do
       it "success" do
         entry
-        update_data = { :title => "new_title" }
-        put "/entries/#{entry.id}", :entry => update_data
+        update_data = { title: "new_title" }
+        put "/entries/#{entry.id}", params: { entry: update_data }
         expect(response).to be_redirect
         entry.reload
         expect(entry.title).to match(update_data[:title])
@@ -282,8 +282,8 @@ describe "Entry" do
         entry
         entry.published = false
         entry.save
-        update_data = { :published => true }
-        put "/entries/#{entry.id}", :entry => update_data
+        update_data = { published: true }
+        put "/entries/#{entry.id}", params: { entry: update_data }
         expect(response).to be_redirect
         entry.reload
         expect(entry.published).to eq(true)
