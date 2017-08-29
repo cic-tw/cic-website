@@ -336,6 +336,12 @@ var ready = function(){
     }
   });
 
+  $('textarea.ckeditor').each(function(){
+    if ($(this).css('visibility') != 'hidden') {
+      CKEDITOR.replace(this)
+    }
+  });
+
   if ( $("#disqus_thread").length ){
     var disqus_shortname = 'cic-tw';
     (function() {

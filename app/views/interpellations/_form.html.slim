@@ -55,14 +55,14 @@ ul class="form-list"
   li
     p 質詢內容＊
     p class="snote" 請填寫關鍵質詢內容對話文字稿。
-    p = f.cktext_area :content, label: false, required: true
+    p = f.cktext_area :content, label: false, required: true, input_html: { class: 'ckeditor' }
   li
     p 質詢對象
     p class="snote" 請填寫本段質詢的對象姓名或職稱。
     p = f.input :target, label: false
   li
     p 個人心得
-    p = f.cktext_area :comment, label: false
+    p = f.cktext_area :comment, label: false, input_html: { class: 'ckeditor' }
   - if user_signed_in? and current_user.admin?
     li
       p 是否允許發佈
