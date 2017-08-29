@@ -73,11 +73,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default charset: "utf-8"
   ActionMailer::Base.smtp_settings = {
-    port          : Setting.smtp_settings.port,
-    address       : Setting.smtp_settings.address,
-    domain        : Setting.smtp_settings.domain,
-    user_name     : Setting.smtp_settings.user_name,
-    password      : Setting.smtp_settings.password,
+    port: Setting.smtp_settings.port,
+    address: Setting.smtp_settings.address,
+    domain: Setting.smtp_settings.domain,
+    user_name: Setting.smtp_settings.user_name,
+    password: Setting.smtp_settings.password,
     authentication: Setting.smtp_settings.authentication
   }
 
