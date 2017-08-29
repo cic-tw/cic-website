@@ -39,7 +39,7 @@ gem 'mini_magick'
 gem 'settingslogic'
 gem 'httparty'
 gem "recaptcha", require: "recaptcha/rails"
-gem 'ckeditor', '4.1.2'
+gem 'ckeditor'
 gem 'ransack'
 gem 'omniauth'
 gem 'omniauth-facebook'
