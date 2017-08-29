@@ -35,7 +35,7 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [118, 100]
   end
 
-  version content do
+  version :content do
     process resize_to_limit: [800, 800]
   end
 
