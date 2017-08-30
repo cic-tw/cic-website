@@ -38,7 +38,7 @@ h2{
 	border-bottom:1px solid #fff;	overflow:hidden;
 	padding:0 6%;
 	margin:0px;
-	background:url(../images/top-bg.jpg) -275px top no-repeat;
+	background: image-url('top-bg.jpg') -275px top no-repeat;
 }
 #main-wrap{
 	overflow:hidden;
@@ -48,7 +48,7 @@ h2{
 	overflow:hidden;
 	margin:0px 0 0px 16px;
 	float:left;
-	background:url(../images/logo-fix.png) no-repeat left center;
+	background: image-url('logo-fix.png') no-repeat left center;
 height:60px;}
 #logo a{
 	display:block;
@@ -454,7 +454,7 @@ border-top-left-radius:8px;}
 	margin:45px 0 15px 0;}
 #news-list ul li{
 	padding:0 0 0 10px;
-	background:url(../images/li-01.gif) no-repeat left 8px;
+	background: image-url('li-01.gif') no-repeat left 8px;
 	margin:0 0 10px 0;}
 #say-list ul{
 	clear:both;
@@ -591,7 +591,7 @@ margin-bottom:15px;}
 	margin:0 0 1% 0;
 	font-size:13px;}
 #sinner-src-list li{
-	background:url(../images/li-01.gif) no-repeat left 9px;
+	background: image-url('li-01.gif') no-repeat left 9px;
 	padding:0 0 0 7px;
 	margin:0 0 2px 0;}
 .inner-content-txt{
@@ -623,7 +623,7 @@ overflow:hidden;}
 	font-weight:bold;
 	margin:0 0 1% 0;
 	padding:0 0 0 2%;
-	background:url(../images/li-02.gif) no-repeat left 8px;
+	background: image-url('li-02.gif') no-repeat left 8px;
 	font-size:15px;
 min-height:2.5em;}
 .two-col-list li{
@@ -680,13 +680,13 @@ min-height:2.5em;
 float: none;
 padding-left:145px;}
 #login-wrap{
-	background:url(../images/login-bg.jpg) no-repeat center top fixed;
+	background: image-url('login-bg.jpg') no-repeat center top fixed;
 	overflow:hidden;
 	}
 #regist-wrap{
 	background:#000;
 	overflow:hidden;
-	background:url(../images/regist-bg.jpg) no-repeat center top fixed;}
+	background:  image-url('regist-bg.jpg') no-repeat center top fixed;}
 #login-out-block{
 	width:95%;
 	float:right;
@@ -792,7 +792,7 @@ background:#d7d7d7;
 #out-login a.g{
 	float:right;}
 #regist-txt{
-	background:url(../images/regist-txt.png) no-repeat;
+	background: image-url('regist-txt.png') no-repeat;
 	height:400px;
 	width:40%;
 	position:absolute;
@@ -857,7 +857,7 @@ border:none;}
 	border-top:1px solid #fff;
 	font-size:12px;
 	text-align:center;
-background:url(../images/footer.jpg) center center no-repeat #000;
+background: image-url('footer.jpg') center center no-repeat #000;
 margin:0px;
 padding:1em 3em;
 }
@@ -1001,7 +1001,7 @@ width:212px;
 height:0px;
 overflow:hidden;
 padding-top:24px;
-background:url(../images/top-h6.png) no-repeat left top;
+background: image-url('top-h6.png') no-repeat left top;
 position:absolute;
 right:7.2%;
 top:35px;}
@@ -1012,7 +1012,7 @@ top:35px;}
 	padding-left:2.5%;}
 #index-banner{
 	height:590px;
-	background:url(../images/banners/index-banner-01.jpg) center top no-repeat;
+	background: image-url('banners/index-banner-01.jpg') center top no-repeat;
 	position:relative;}
 #active-btn{
 	position:absolute;
@@ -1031,7 +1031,7 @@ top:35px;}
 	text-align:center;
 	padding:10px 0;}
 .srblock#search01{
-	background:#e9e0ad url(../images/banners/search-banner-01.jpg) 21% center no-repeat;
+	background:#e9e0ad image-url('banners/search-banner-01.jpg') 21% center no-repeat;
 	height:360px;
 	padding:10px 6% 10px 47%;
 	}
@@ -1405,22 +1405,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1a1a1', end
 	float:left;
 	}
 #lmi-05 a{
-	background:url(../images/outlink-01.png) no-repeat center bottom;}
+	background:image-url('outlink-01.png') no-repeat center bottom;}
 #lmi-06 a{
-	background:url(../images/outlink-02.png) no-repeat center bottom;}
+	background:image-url('outlink-02.png') no-repeat center bottom;}
 #lmi-07 a{
-	background:url(../images/outlink-03.png) no-repeat center bottom;}
+	background:image-url('outlink-03.png') no-repeat center bottom;}
 #lmi-08 a{
-	background:url(../images/outlink-04.png) no-repeat center bottom;}
+	background:image-url('outlink-04.png') no-repeat center bottom;}
 #lmi-09 a{
 	width:40px;
-	background:url(../images/outlink-05.png) no-repeat center bottom;}
+	background:image-url('outlink-05.png') no-repeat center bottom;}
 #lmi-10 a{
 	width:45px;
-	background:url(../images/outlink-06.png) no-repeat center bottom;}
+	background:image-url('outlink-06.png') no-repeat center bottom;}
 #lmi-11 a{
 	width:47px;
-	background:url(../images/outlink-07.png) no-repeat center bottom;}
+	background:image-url('outlink-07.png') no-repeat center bottom;}
 .legislators-more-info{
 	margin:10px 0 40px 0;}
 .legislators-more-info a{
@@ -1440,16 +1440,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1a1a1', end
 	padding:0 10px 0 35px;
 	float:left;}
 #title-contributions h3{
-	background:url(../images/title-contributions.png) no-repeat left center;
+	background:image-url('title-contributions.png') no-repeat left center;
 	}
 #title-vote h3{
-	background:url(../images/title-vote.png) no-repeat left center;
+	background:image-url('title-vote.png') no-repeat left center;
 	}
 #title-law h3{
-	background:url(../images/title-law.png) no-repeat left center;
+	background:image-url('title-law.png') no-repeat left center;
 	}
 #title-analysis h3{
-	background:url(../images/title-analysis.png) no-repeat left center;
+	background:image-url('title-analysis.png') no-repeat left center;
 	}
 .vote-ly-g0v .legislators-group{
 	width:86.5%;
@@ -1674,17 +1674,17 @@ margin-left:4%;}
 	margin:9px 0;
 	}
 .notpassed{
-	background-image:url(../images/icon-noall.png);}
+	background-image:image-url('icon-noall.png');}
 .passed{
-	background-image:url(../images/icon-yesall.png);}
+	background-image:image-url('icon-yesall.png');}
 .agree{
-	background-image:url(../images/icon-yes.png);}
+	background-image:image-url('icon-yes.png');}
 .disagree{
-	background-image:url(../images/icon-no.png);}
+	background-image:image-url('icon-no.png');}
 .abstain{
-	background-image:url(../images/icon-giveup.png);}
+	background-image:image-url('icon-giveup.png');}
 .notvote{
-	background-image:url(../images/icon-donotvote.png);}
+	background-image:image-url('icon-donotvote.png');}
 .count-law{
 	float:left;}
 .count-law span{
@@ -1699,7 +1699,7 @@ margin-left:4%;}
 	display:block;
 	float:left;
 	font-size:16px;
-	background-image:url(../images/icon-law.png);
+	background-image:image-url('icon-law.png');
 	background-repeat:no-repeat;
 	background-position:10px center;
 	padding:0 20px 0 50px;
@@ -1722,12 +1722,12 @@ margin-left:4%;}
 	margin:0 0 10px 0;
 	line-height:1.2em;}
 #bg-wrap{
-	background:url(../images/regist-bg.jpg) center top fixed;
+	background:image-url('regist-bg.jpg') center top fixed;
 	overflow:hidden;
 	min-height:480px;
 	}
 #bg-wrap-2{
-	background:url(../images/regist-bg-2.jpg) center top fixed;
+	background:image-url('regist-bg-2.jpg') center top fixed;
 	overflow:hidden;
 	min-height:480px;
 	color:#eee;}
@@ -1742,7 +1742,7 @@ margin-left:4%;}
 	float:left;
 	padding:14px 0 0 12px;}
 .api-dead-block{
-	background:url(../images/oops.png) no-repeat 30px center;
+	background:image-url('oops.png') no-repeat 30px center;
 	padding:50px 50px 50px 180px;
 	border:5px dotted #ccc;
 	max-width:430px;
@@ -1867,12 +1867,12 @@ padding:0px;}
 .law-img i{
 	width:45px;
 	height:54px;
-	background:url(../images/law-img.png);
+	background:image-url('law-img.png');
 	margin-left:-24px;}
 .money-img i{
 	width:46px;
 	height:57px;
-	background:url(../images/money-img.png);
+	background:image-url('money-img.png');
 	margin-left:-25px;}
 .citizen-score-txt{
 	width:49%;
@@ -2093,7 +2093,7 @@ float:left;}
 #title-total-data.vtitle-set h3{
 	padding-left:0px;}
 #legislators-complex {
-	background:#fff2b7 url(../images/banners/complex-banner-1.jpg) no-repeat top center;
+	background:#fff2b7 image-url('banners/complex-banner-1.jpg') no-repeat top center;
 	background-size:cover;
 	padding-top:22%;
 	overflow:hidden;
@@ -2173,7 +2173,7 @@ a.bb02{
 }
 @media only screen and (max-width: 1152px){
 	.srblock#search01{
-	background:#e9e0ad url(../images/banners/search-banner-01.jpg) 18% center no-repeat;
+	background:#e9e0ad image-url('banners/search-banner-01.jpg') 18% center no-repeat;
 	height:360px;
 	padding:10px 6% 10px 49%;
 	}
@@ -2269,7 +2269,7 @@ clear:none;}
 @media only screen and (max-width: 960px){
 	#index-banner{
 	height:500px;
-	background:url(../images/banners/index-banner-02.jpg) center top no-repeat;
+	background:image-url('banners/index-banner-02.jpg') center top no-repeat;
 	}
 	#book-sell a:nth-child(1),#book-sell a:nth-child(3){
 	display:none;}
@@ -2282,7 +2282,7 @@ clear:none;}
 #active-btn a{
 	font-size:22px;}
 .srblock#search01{
-	background:#e9e0ad url(../images/banners/search-banner-01.jpg) 4% center no-repeat;
+	background:#e9e0ad image-url('banners/search-banner-01.jpg') 4% center no-repeat;
 	-moz-background-size:40%;
 -webkit-background-size:40%;
 -o-background-size:40%;
@@ -2665,7 +2665,7 @@ padding:4px 6px;
 	min-height:50px;}
 #index-banner{
 	height:400px;
-	background:url(../images/banners/index-banner-03.jpg) center top no-repeat;
+	background:image-url('banners/index-banner-03.jpg') center top no-repeat;
 	}
 #active-btn{
 	top:195px;
@@ -2737,7 +2737,7 @@ margin:10px 0 0 0;}
 #secn01.txt-nav li:nth-child(6){
 margin:10px 0 0 -1px;}
 #legislators-complex {
-	background:#fff2b7 url(../images/banners/complex-banner-2.jpg) no-repeat top center;
+	background:#fff2b7 image-url('banners/complex-banner-2.jpg') no-repeat top center;
 	background-size:cover;
 	padding-top:30%;}
 .clink-01 br,.clink-03 br{
@@ -2961,7 +2961,7 @@ padding-top:19.5%;}
 	min-height:50px;}
 #index-banner{
 	height:450px;
-	background:url(../images/banners/index-banner-04.jpg) center top no-repeat;
+	background:image-url('banners/index-banner-04.jpg') center top no-repeat;
 	}
 #active-btn{
 	top:205px;
@@ -3240,7 +3240,7 @@ float: none;
 .legislators-more-info,.vote-ly-g0v .legislators-more-info{
 	width:auto;}
 #legislators-complex {
-	background:#fff2b7 url(../images/banners/complex-banner-3.jpg) no-repeat top center;
+	background:#fff2b7 image-url('banners/complex-banner-3.jpg') no-repeat top center;
 	background-size:cover;
 	padding-top:40%;}
 

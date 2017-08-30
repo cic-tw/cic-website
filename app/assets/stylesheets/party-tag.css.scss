@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+.party-dpp{
+	background:image-url('parties/dpp.gif');
+	}
+.party-kmt{
+	background:image-url('parties/kmt.gif');}
+.party-nsu{
+	background:image-url('parties/nsu.gif');}
+.party-tsu{
+	background:image-url('parties/tsu.gif');}
+.party-pfp{
+	background:image-url('parties/pfp.gif');}
+.party-null{
+	background:image-url('parties/null.gif');}
+.party-mkt{
+	background:image-url('parties/mkt.gif');}
+.party-npp{
+	background:image-url('parties/npp.gif');}
+
+/*依區域找立委搜尋結果黨籍*/
+.slegislator .party-kmt{
+	background:image-url('parties/kmt2.png');}
+.slegislator .party-null{
+	background:image-url('parties/null2.png');}
+.slegislator .party-pfp{
+	background:image-url('parties/pfp2.png');}
+.slegislator .party-nsu{
+	background:image-url('parties/nsu2.png');}
+.slegislator  .party-dpp{
+	background:image-url('parties/dpp2.png');
+	}
+.slegislator  .party-tsu{
+	background:image-url('parties/tsu2.png');}
+.slegislator  .party-mkt{
+	background:image-url('parties/mkt2.png');}	
+.slegislator  .party-npp{
+	background:image-url('parties/npp2.png');}	
+
+/*立委個人區塊黨籍*/
+.legislators-block .party-kmt{
+	background:#f3f3f3 image-url('parties/kmt2.png') no-repeat right bottom;}
+.legislators-block .party-null{
+	background:#f3f3f3 image-url('parties/null2.png') no-repeat right bottom;}
+.legislators-block .party-pfp{
+	background:#f3f3f3 image-url('parties/pfp2.png') no-repeat right bottom;}
+.legislators-block .party-nsu{
+	background:#f3f3f3 image-url('parties/nsu2.png') no-repeat right bottom;}
+.legislators-block  .party-dpp{
+	background:#f3f3f3 image-url('parties/dpp2.png') no-repeat right bottom;
+	}
+.legislators-block  .party-tsu{
+	background:#f3f3f3 image-url('parties/tsu2.png') no-repeat right bottom;}
+.legislators-block  .party-mkt{
+	background:#f3f3f3 image-url('parties/mkt2.png') no-repeat right bottom;}	
+.legislators-block  .party-npp{
+	background:#f3f3f3 image-url('parties/npp2.png') no-repeat right bottom;}	

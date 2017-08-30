@@ -29,7 +29,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol{
 	border-bottom:1px solid #fff;	overflow:hidden;
 	padding:0 6%;
 	margin:0px;
-	background:url(../images/top-bg.jpg) -275px top no-repeat;
+	background: image-url('top-bg.jpg') -275px top no-repeat;
 }
 #main-wrap{
 	overflow:hidden;}
@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol{
 	overflow:hidden;
 	margin:0px 0 0px 16px;
 	float:left;
-	background:url(../images/logo-fix.png) no-repeat left center;
+	background: image-url('logo-fix.png') no-repeat left center;
 height:60px;}
 #logo a{
 	display:block;
