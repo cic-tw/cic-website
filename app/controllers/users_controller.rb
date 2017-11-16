@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   # GET /admin/users/1/confirm
   def confirm
     unless @user.confirmed?
-      @user.confirm!
+      @user.confirm
       redirect_to users_url, notice: '會員成功認證'
     end
   end
