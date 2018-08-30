@@ -75,20 +75,14 @@ color:#E60012;
 }
 
 #first-nav li .nav-donate{
-	position: fixed;
-	right: 0;
-	bottom: 0;
-	background-color: #E60012;
-	color: #fff;
-	display: block;
-	text-align: center;
-	padding: 10px 15px;
-	font-size: 24px;
-	z-index: 999;
+	color: #E60012;
 }
+
 #first-nav li .nav-donate:hover{
 	color: #fff;
 }
+
+
 
 
 #index-video-block{
@@ -1016,10 +1010,19 @@ top:35px;}
 	position:relative;}
 #active-btn{
 	position:absolute;
-	right:50%;
-	top:295px;
-	width:200px;
-	margin-right:-240px;}
+	left:50%;
+	top:150px;
+	width:400px;
+	}
+#active-btn h3{
+	font-size: 42px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+#active-btn h3 span{
+	font-size: 28px;
+	display: block;
+}
 #active-btn a{
 	display:block;
 	background:#e5004f;
@@ -2267,20 +2270,14 @@ clear:none;}
 }
 	}
 @media only screen and (max-width: 960px){
-	#index-banner{
-	height:500px;
-	background:url(../images/banners/index-banner-02.jpg) center top no-repeat;
+#active-btn{
+	width:300px;
 	}
 	#book-sell a:nth-child(1),#book-sell a:nth-child(3){
 	display:none;}
 	#book-sell a:nth-child(2){
 		display:block;}
-#active-btn{
-	top:250px;
-	width:180px;
-	margin-right:-210px;}
-#active-btn a{
-	font-size:22px;}
+
 .srblock#search01{
 	background:#e9e0ad url(../images/banners/search-banner-01.jpg) 4% center no-repeat;
 	-moz-background-size:40%;
@@ -2588,6 +2585,9 @@ padding-bottom:15px;}
 
 
 @media only screen and (max-width: 800px){
+	#active-btn{
+	width:250px;
+	}
 /*表頭*/
 #first-nav li a{
 padding:4px 6px;
@@ -2663,16 +2663,8 @@ padding:4px 6px;
 /*無資料列表*/
 .big-news-show .blank,.big-video-show .blank{
 	min-height:50px;}
-#index-banner{
-	height:400px;
-	background:url(../images/banners/index-banner-03.jpg) center top no-repeat;
-	}
-#active-btn{
-	top:195px;
-	width:143px;
-	margin-right:-165px;}
-#active-btn a{
-	font-size:18px;}	
+
+
 
 #search02 h2,#search03 h2{
 	float:none;
@@ -2749,6 +2741,9 @@ min-height:420px;}
 }
 
 @media only screen and (max-width: 720px){
+	#active-btn{
+	left: 40%;
+	}
 	#banner0108 a{
 		width: auto;
 		float: none;
@@ -2808,6 +2803,7 @@ margin:0 10px 0 0;
 
 
 @media only screen and (max-width: 640px){
+	
 /*表頭*/
 #logo{
 	margin:0 auto;
@@ -2959,14 +2955,8 @@ padding-top:19.5%;}
 	width:72.5%;}
 .big-news-show .blank,.big-video-show .blank{
 	min-height:50px;}
-#index-banner{
-	height:450px;
-	background:url(../images/banners/index-banner-04.jpg) center top no-repeat;
-	}
-#active-btn{
-	top:205px;
-	width:143px;
-	margin-right:-120px;}	
+
+
 .srblock#search01{
 	height:auto;
 	background:#e9e0ad;
@@ -3069,6 +3059,23 @@ padding-top:19.5%;}
 
 
 @media only screen and (max-width: 480px){
+	#active-btn{
+	left: 35%;
+	width: 200px;
+	}
+	#first-nav li .nav-donate{
+	position: fixed;
+	left:0;
+	bottom: 0;
+	width: 100%;
+	background-color: #E60012;
+	color: #fff;
+	display: block;
+	text-align: center;
+	padding: 10px 15px;
+	font-size: 24px;
+	z-index: 999;
+}
 	#book-sell a:nth-child(1),#book-sell a:nth-child(2){
 	display:none;}
 	#book-sell a:nth-child(3){
