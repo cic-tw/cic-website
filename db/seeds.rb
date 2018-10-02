@@ -94,7 +94,17 @@ ad_sessions = [
   {id: 14, ad_id: 8, name: '第8會期', date_start: '2015-09-15', date_end: '2015-12-18', regular: true, session: 8},
   {id: 15, ad_id: 9, name: '第1會期', date_start: '2016-02-19', date_end: '2016-07-15', regular: true, session: 1},
   {id: 16, ad_id: 9, name: '第1會期第1次臨時會', date_start: '2016-07-20', date_end: '2016-07-29', regular: false, session: 1},
-  {id: 17, ad_id: 9, name: '第2會期', date_start: '2016-09-13', date_end: nil, regular: true, session: 2}
+  {id: 17, ad_id: 9, name: '第2會期', date_start: '2016-09-13', date_end: '2016-12-30', regular: true, session: 2},
+  {id: 18, ad_id: 9, name: '第2會期第1次臨時會', date_start: '2017-01-05', date_end: '2017-01-19', regular: false, session: 2},
+  {id: 19, ad_id: 9, name: '第3會期', date_start: '2017-02-17', date_end: '2017-05-31', regular: true, session: 3},
+  {id: 20, ad_id: 9, name: '第3會期第1次臨時會', date_start: '2017-06-14', date_end: '2017-07-05', regular: false, session: 3},
+  {id: 21, ad_id: 9, name: '第3會期第2次臨時會', date_start: '2017-07-13', date_end: '2017-07-21', regular: false, session: 3},
+  {id: 22, ad_id: 9, name: '第3會期第3次臨時會', date_start: '2017-08-18', date_end: '2017-08-31', regular: false, session: 3},
+  {id: 23, ad_id: 9, name: '第4會期', date_start: '2017-09-22', date_end: '2017-12-29', regular: true, session: 4},
+  {id: 24, ad_id: 9, name: '第4會期第1次臨時會', date_start: '2018-01-05', date_end: '2018-01-30', regular: false, session: 4},
+  {id: 25, ad_id: 9, name: '第5會期', date_start: '2018-02-27', date_end: '2018-05-31', regular: true, session: 5},
+  {id: 26, ad_id: 9, name: '第5會期第1次臨時會', date_start: '2018-06-11', date_end: '2018-07-06', regular: false, session: 5},
+  {id: 27, ad_id: 9, name: '第6會期', date_start: '2018-09-21', date_end: nil, regular: true, session: 6}
 ]
 
 ad_sessions.each do |a|
@@ -355,6 +365,20 @@ ads.each do |ad|
     end
     election.save
   end
+end
+
+# Update all records ad_session
+
+Entry.all.each do |e|
+  e.save
+end
+
+Interpellation.all.each do |i|
+  i.save
+end
+
+Video.all.each do |v|
+  v.save
 end
 
 # CCW Data import
