@@ -297,6 +297,11 @@ ads.each do |ad|
     end
     if Legislator.exists? l['uid']
       legislator = Legislator.find(l['uid'])
+      if ad == ads.last
+        legislator.in_office = l['in_office']
+      else
+        legislator.in_office = false
+      end
     else
       legislator = Legislator.new()
       legislator.id = l['uid']
