@@ -334,13 +334,15 @@ ads.each do |ad|
     election.constituency = constituency
     legislator.save
     election.save
-    l['committees'].each do |c|
-      legislator_committee = LegislatorCommittee.new
-      legislator_committee.ad_session = AdSession.where(ad_id: c['ad'], session: c['session'], regular: true).first
-      legislator_committee.convener = c["chair"]
-      legislator_committee.legislator = legislator
-      legislator_committee.committee = Committee.where(name: c["name"]).first
-      legislator_committee.save
+    if l['committees']
+      l['committees'].each do |c|
+        legislator_committee = LegislatorCommittee.new
+        legislator_committee.ad_session = AdSession.where(ad_id: c['ad'], session: c['session'], regular: true).first
+        legislator_committee.convener = c["chair"]
+        legislator_committee.legislator = legislator
+        legislator_committee.committee = Committee.where(name: c["name"]).first
+        legislator_committee.save
+      end
     end
     if l['county']
       county = County.where(name: l['county']).first
