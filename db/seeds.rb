@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+$stdout.sync = true
 
 Party.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!(Party.table_name)
@@ -371,6 +372,7 @@ ads.each do |ad|
       election.county = county
     end
     election.save
+    print '.'
   end
 end
 
@@ -448,6 +450,7 @@ Ad.all.each do |ad|
         ccw_citizen_score.average = ccw_citizen_scores["average"]
         ccw_citizen_score.ccw_link = ccw_citizen_scores["ccw_link"]
         ccw_citizen_score.save
+        print '.'
       end
     end
   end
@@ -517,5 +520,5 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-
+puts "\n"
 
