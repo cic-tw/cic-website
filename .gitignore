@@ -28,3 +28,4 @@ public/uploads/
 public/assets/
 public/apidocs/
 *.Ulysses-Group.plist
+files/*.csv
