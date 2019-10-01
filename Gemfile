@@ -55,7 +55,7 @@ gem "twitter-bootstrap-rails"
 gem 'rabl-rails'
 gem 'responders', '~> 2.0'
 gem 'lograge'
-gem 'rollbar'
+# gem 'rollbar'
 gem 'oj', '~> 2.12.14'
 # gem "skylight"
 
