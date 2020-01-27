@@ -1,7 +1,65 @@
+script type="application/ld+json" 
+  | [{
+  | "@context": "http://schema.org",
+  | "@type": "WebPage",
+  | "name": "(動態帶入跟title一樣的文字)",
+  | "description": "(動態帶入該頁meta description)",
+  | "url": "(動態帶入該頁網址)",
+  | "publisher": "國會調查兵團"
+  | },
+  | {
+  | "@context": "http://schema.org",
+  | "@type": "ItemList",
+  | "itemListElement": [{
+  | "position": 1,
+  | "@type": "WebPage",
+  | "name": "首頁",
+  | "url": "https://cic.tw"
+  | },
+  | {
+  | "position": 2,
+  | "@type": "WebPage",
+  | "name": "最新調查",
+  | "url": "https://cic.tw/recent"
+  | },
+  | {
+  | "position": 3,
+  | "@type": "WebPage",
+  | "name": "回報立委資訊",
+  | "url": "https://cic.tw/report"
+  | },
+  | {
+  | "position": 4,
+  | "@type": "WebPage",
+  | "name": "加入兵團",
+  | "url": "https://cic.tw/users/sign_up"
+  | },
+  | {
+  | "position": 5,
+  | "@type": "WebPage",
+  | "name": "登入",
+  | "url": "https://cic.tw/users/sign_in"
+  | },
+  | {
+  | "position": 6,
+  | "@type": "WebPage",
+  | "name": "兵團計畫說明",
+  | "url": "https://cic.tw/about"
+  | },
+  | {
+  | "position": 7,
+  | "@type": "WebPage",
+  | "name": "贊助兵團",
+  | "url": "http://shop.cic.tw/"
+  | }
+  | ]
+  | }
+  | ]
+
 #index-banner
   #active-btn
     = link_to "回報立委紀錄", report_path
-    = link_to "馬上找立委", legislators_search_path
+    = link_to "看立委說什麼", legislators_search_path
 
 #index-video-block
   h3 class="index-b-title" 最新影片回報

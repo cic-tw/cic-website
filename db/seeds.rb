@@ -198,24 +198,24 @@ def get_page(url)
   end
 end
 
-def get_vote_guide_legislator_term_data(legislator_id, ad)
-  legislator_term_url = "http://vote.ly.g0v.tw/api/legislator_terms/?format=json&ad=#{ad}&legislator=#{legislator_id}"
-  legislator_term_json = JSON.parse(get_page(legislator_term_url))
-  if legislator_term_json["results"].any?
-    return legislator_term_json["results"][0]
-  else
-    return nil
-  end
-end
+# def get_vote_guide_legislator_term_data(legislator_id, ad)
+#   legislator_term_url = "http://vote.ly.g0v.tw/api/legislator_terms/?format=json&ad=#{ad}&legislator=#{legislator_id}"
+#   legislator_term_json = JSON.parse(get_page(legislator_term_url))
+#   if legislator_term_json["results"].any?
+#     return legislator_term_json["results"][0]
+#   else
+#     return nil
+#   end
+# end
 
-def get_vote_guide_candidate_data(candidate_url)
-  candidate_json = JSON.parse(get_page(candidate_url))
-  unless candidate_json.blank?
-    return candidate_json
-  else
-    return nil
-  end
-end
+# def get_vote_guide_candidate_data(candidate_url)
+#   candidate_json = JSON.parse(get_page(candidate_url))
+#   unless candidate_json.blank?
+#     return candidate_json
+#   else
+#     return nil
+#   end
+# end
 
 County.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!(County.table_name)
@@ -274,28 +274,28 @@ ads.each do |ad|
   legislators = JSON.parse(File.read(legislators_filepath))
   legislator_links = JSON.parse(File.read(legislators_links_filepath))
   legislators.each do |l|
-    vote_guide_data = get_vote_guide_legislator_term_data(l['uid'], ad[:id])
-    unless vote_guide_data.blank?
-      l['county'] = vote_guide_data['county'] unless vote_guide_data['county'].blank?
-      if ad[:id] == 8 and l['county'] == "桃園市"
-        l['county'] == "桃園縣"
-      elsif ad[:id] > 8 and l['county'] == "桃園縣"
-        l['county'] == "桃園市"
-      end
-      if vote_guide_data['district'].blank?
-        if vote_guide_data['elected_candidate'].present? and vote_guide_data['elected_candidate'].length > 0
-          if vote_guide_data['elected_candidate'].kind_of?(Array)
-            candidate_url = vote_guide_data['elected_candidate'].first
-          else
-            candidate_url = vote_guide_data['elected_candidate']
-          end
-          candidate_data = get_vote_guide_candidate_data(candidate_url)
-          l['district'] = candidate_data['district'].split('，')
-        end
-      else
-        l['district'] = vote_guide_data['district'].split('，')
-      end
-    end
+    # vote_guide_data = get_vote_guide_legislator_term_data(l['uid'], ad[:id])
+    # unless vote_guide_data.blank?
+    #   l['county'] = vote_guide_data['county'] unless vote_guide_data['county'].blank?
+    #   if ad[:id] == 8 and l['county'] == "桃園市"
+    #     l['county'] == "桃園縣"
+    #   elsif ad[:id] > 8 and l['county'] == "桃園縣"
+    #     l['county'] == "桃園市"
+    #   end
+    #   if vote_guide_data['district'].blank?
+    #     if vote_guide_data['elected_candidate'].present? and vote_guide_data['elected_candidate'].length > 0
+    #       if vote_guide_data['elected_candidate'].kind_of?(Array)
+    #         candidate_url = vote_guide_data['elected_candidate'].first
+    #       else
+    #         candidate_url = vote_guide_data['elected_candidate']
+    #       end
+    #       candidate_data = get_vote_guide_candidate_data(candidate_url)
+    #       l['district'] = candidate_data['district'].split('，')
+    #     end
+    #   else
+    #     l['district'] = vote_guide_data['district'].split('，')
+    #   end
+    # end
     if Legislator.exists? l['uid']
       legislator = Legislator.find(l['uid'])
       if ad == ads.last
