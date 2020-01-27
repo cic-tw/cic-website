@@ -136,6 +136,13 @@ class LegislatorsController < ApplicationController
         description: '看看現任立委在國會殿堂的表現吧！'
       }
     })
+
+    @jsonld = [
+      menu_jsonld,
+      generate_page_jsonld("立委列表", "看看現任立委在國會殿堂的表現吧！"),
+      generate_people_jsonld(@legislators)
+    ]
+
     respond_to do |format|
       format.html
       format.json {render json: {
@@ -154,8 +161,9 @@ class LegislatorsController < ApplicationController
   # GET /legislators/1
   def show
     @videos = @legislator.videos.published.first(5)
-    @main_video = @videos.shift
-    @sub_videos = @videos
+    videos = @videos.clone.to_a
+    @main_video = videos.shift
+    @sub_videos = videos
     @entries = @legislator.entries.published.first(5)
     @interpellations = @legislator.interpellations.published.first(5)
 
@@ -170,6 +178,13 @@ class LegislatorsController < ApplicationController
         image: "#{Setting.url.protocol}://#{Setting.url.host}/images/legislators/160x214/#{@legislator.image}"
       }
     })
+
+    @jsonld = [
+      menu_jsonld,
+      generate_page_jsonld("#{@legislator.name}調查報告 — #{@legislator.name}立委", '看看現任立委在國會殿堂的表現吧！'),
+      generate_person_jsonld(@legislator),
+      generate_videos_jsonld(@videos)
+    ]
 
     respond_to do |format|
       format.html
@@ -263,6 +278,7 @@ class LegislatorsController < ApplicationController
         image: "#{Setting.url.protocol}://#{Setting.url.host}/images/legislators/160x214/#{@legislator.image}"
       }
     })
+
     respond_to do |format|
       format.html
       format.json { render json: {
@@ -312,6 +328,14 @@ class LegislatorsController < ApplicationController
         image: "#{Setting.url.protocol}://#{Setting.url.host}/images/legislators/160x214/#{@legislator.image}"
       }
     })
+
+    @jsonld = [
+      menu_jsonld,
+      generate_page_jsonld("#{@legislator.name}影片列表 — #{@legislator.name}立委"),
+      generate_person_jsonld(@legislator),
+      generate_videos_jsonld(@videos)
+    ]
+
     respond_to do |format|
       format.html
       format.json { render json: {

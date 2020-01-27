@@ -90,4 +90,123 @@ class ApplicationController < ActionController::Base
     results.select! { |x| 1 <= x and x <=  total_page}
     return current_page, results
   end
+
+  def menu_jsonld
+    return {
+     "@context": "http://schema.org",
+     "@type": "ItemList",
+     itemListElement:[
+        {
+          position: 1,
+          "@type": "WebPage",
+          name: "首頁",
+          url:"https://cic.tw"
+        },
+        {
+          position: 2,
+          "@type": "WebPage",
+          name: "最新調查",
+          url: "https://cic.tw/recent"
+        },
+        {
+          position: 3,
+          "@type": "WebPage",
+          name: "回報立委資訊",
+          url: "https://cic.tw/report"
+        },
+        {
+          position: 4,
+          "@type": "WebPage",
+          name: "加入兵團",
+          url: "https://cic.tw/users/sign_up"
+        },
+        {
+          position: 5,
+          "@type": "WebPage",
+          name: "登入",
+          url: "https://cic.tw/users/sign_in"
+        },
+        {
+          position: 6,
+          "@type": "WebPage",
+          name: "兵團計畫說明",
+          url: "https://cic.tw/about"
+        },
+        {
+          position: 7,
+          "@type": "WebPage",
+          name: "贊助兵團",
+          url: "http://shop.cic.tw/"
+        }
+      ]
+    }
+  end
+
+  def generate_page_jsonld(title, description)
+    return {
+      "@context": "http://schema.org",
+      "@type": "WebPage",
+      name: title,
+      description: description,
+      url: request.url,
+      publisher: "國會調查兵團"
+    }
+  end
+
+  def generate_people_jsonld(legislator)
+    return {
+      "@context": "http://schema.org/",
+      "@type": "Person",
+      name: legislator.name,
+      image: "https://cic.tw/legislators/#{legislator.id}"
+    }
+  end 
+
+  def generate_person_jsonld(legislators)
+    jsonld = {
+      "@context": "http://schema.org/",
+      "@type": "DataCatalog",
+      character:[]
+    }
+
+    legislators.each do |legislator|
+      jsonld[:character] << {
+        "@type": "Person",
+        name: legislator.name,
+        url: "https://cic.tw/legislators/#{legislator.id}",
+        affiliation: legislator.party.name
+      }
+    end
+    return jsonld
+  end
+
+  def generate_video_jsonld(video)
+    return {
+      "@context": "http://schema.org",
+      "@type": "VideoObject",
+      name: "#{video.legislators.first.name} － #{video.title}",
+      description: video.title,
+      embedUrl: "https://www.youtube.com/embed/#{@video.youtube_id}",
+      thumbnailUrl: "https://cic.tw#{video.image}",
+      uploadDate: "video.created_at.strftime('%Y%m%d')"
+    }
+  end
+
+  def generate_videos_jsonld(videos)
+    jsonld = {
+      "@context": "http://schema.org",
+      "@type": "ItemList",
+      itemListElement: []
+    }
+    videos.each do |video|
+      jsonld[:itemListElement] << {
+        "@type": "VideoObject",
+        description: video.title,
+        name: "#{video.legislators.first.name} － #{video.title}",
+        thumbnailUrl: "https://cic.tw#{video.image}",
+        uploadDate: "video.created_at.strftime('%Y%m%d')"
+      }
+    end
+    return jsonld
+  end
 end

@@ -56,6 +56,13 @@ class VideosController < ApplicationController
         }
       })
     end
+
+    @jsonld = [
+      menu_jsonld,
+      generate_page_jsonld("最新立委影片調查報告", "本期最新回報紀錄為#{legislator_names}"),
+      generate_videos_jsonld(@videos)
+    ]
+
     respond_to do |format|
       format.html
       format.json { render json: {
@@ -110,6 +117,14 @@ class VideosController < ApplicationController
         image: @video.image
       }
     })
+
+    @jsonld = [
+      menu_jsonld,
+      generate_page_jsonld("#{@video.legislators.first.name} － #{@video.title}", @video.title),
+      generate_video_jsonld(@video),
+      generate_people_jsonld(@video.legislators)
+    ]
+
     respond_to do |format|
       format.html
       format.json { render json: {

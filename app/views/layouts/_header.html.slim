@@ -12,10 +12,7 @@
         li = link_to '登出', destroy_user_session_path, method: :delete
         li = link_to "兵團計畫說明", about_path, class: "nav-info"
         li
-          = link_to "http://shop.cic.tw/", class: "nav-donate", target: "_blank" do
-            | 贊助
-            br
-            | 兵團
+          = link_to "贊助兵團", "http://shop.cic.tw/", class: "nav-donate", target: "_blank"
         - if current_user.admin?
           li = link_to "後台首頁", admin_path
           li = link_to "影片管理", admin_videos_path
@@ -30,7 +27,4 @@
         li = link_to "登入", new_user_session_path
         li = link_to "兵團計畫說明", about_path, class: "nav-info"
         li
-          = link_to "http://shop.cic.tw/", class: "nav-donate", target: "_blank" do
-            | 贊助
-            br
-            | 兵團
+          = link_to "贊助兵團", "http://shop.cic.tw/", class: "nav-donate", target: "_blank"

@@ -1,13 +1,19 @@
 class StaticPagesController < ApplicationController
 
   def home
-    videos = Video.published.first(3)
-    while videos.length < 3
-      videos << nil
+    @videos = Video.published.first(3)
+    while @videos.length < 3
+      @videos << nil
     end
+    videos = @videos.clone.to_a
     @main_video = videos.shift
     @sub_videos = videos
     @legislators = Legislator.order_by_videos_count.first(12)
+
+    @jsonld = [
+      menu_jsonld,
+      generate_page_jsonld('Congressional Investigation Corps', @main_video.try(:title))
+    ]
 
     set_meta_tags({
       title: 'Congressional Investigation Corps',
@@ -26,6 +32,12 @@ class StaticPagesController < ApplicationController
     @videos    = Video.published.search(title_or_content_or_meeting_description_cont: q).result.first(10)
     @entries   = Entry.published.search(title_or_content_cont: q).result.first(10)
     @interpellations = Interpellation.published.search(title_or_content_or_meeting_description_cont: q).result.first(5)
+
+    @jsonld = [
+      menu_jsonld,
+      generate_page_jsonld('國會調查兵團最新調查報告', @videos.first.try(:title)),
+      generate_videos_jsonld(@videos)
+    ]
 
     set_meta_tags({
       title: '國會調查兵團最新調查報告',

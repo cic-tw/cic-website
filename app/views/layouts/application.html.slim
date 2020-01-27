@@ -16,6 +16,9 @@ html lang="zh-Hant-TW"
       = stylesheet_link_tag 'admin-style', 'data-turbolinks-track' => false
     - if ['votes', 'bills', 'candidate'].include?(params[:action])
       = stylesheet_link_tag 'popup', 'data-turbolinks-track' => false
+    - unless @jsonld.blank?
+      script type="application/ld+json"
+        = @jsonld.to_json.html_safe
   body
     - if ['events/incantations'].include?(params[:controller])
       = yield
