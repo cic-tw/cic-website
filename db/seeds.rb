@@ -392,6 +392,7 @@ end
 
 Entry.all.each do |e|
   e.save
+  print '.'
 end
 
 Interpellation.all.each do |i|
@@ -399,6 +400,7 @@ Interpellation.all.each do |i|
     i.ivod_url.sub!('http://', 'https://')
   end
   i.save
+  print '.'
 end
 
 Video.all.each do |v|
@@ -406,6 +408,7 @@ Video.all.each do |v|
     v.ivod_url.sub!('http://', 'https://')
   end
   v.save
+  print '.'
 end
 
 # CCW Data import
