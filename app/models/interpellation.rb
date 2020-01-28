@@ -26,6 +26,7 @@ class Interpellation < ApplicationRecord
     if self.ivod_url.to_s == ''
       return nil
     end
+    self.ivod_url = self.ivod_url.sub('http://', 'https://')
     ivod_uri = URI.parse(self.ivod_url)
     html = Nokogiri::HTML(open(self.ivod_url))
     info_section = html.css('div.legislator-video div.video-text')[0]

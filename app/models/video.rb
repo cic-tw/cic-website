@@ -69,6 +69,7 @@ class Video < ApplicationRecord
     if self.ivod_url.to_s == '' and ['news', 'others'].include? self.video_type
       return true
     end
+    self.ivod_url = self.ivod_url.sub('http://', 'https://')
     ivod_uri = URI.parse(self.ivod_url)
     html = Nokogiri::HTML(open(self.ivod_url))
     info_section = html.css('div.legislator-video div.video-text')[0]
