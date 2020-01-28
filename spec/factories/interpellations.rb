@@ -12,7 +12,7 @@ FactoryGirl.define do
 
   factory :interpellation_record, parent: :interpellation do
     interpellation_type "record"
-    record_url 'http://www.google.com.tw'
+    record_url 'https://www.google.com.tw'
   end
 
   factory :interpellation_ivod, parent: :interpellation do

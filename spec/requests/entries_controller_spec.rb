@@ -11,7 +11,7 @@ describe "Entry" do
       title: "new_entry_title",
       content: "new_entry_content",
       legislator_ids: [ FactoryGirl.create(:legislator).id ],
-      source_url: "http://www.google.com/",
+      source_url: "https://www.google.com/",
       source_name: "new_entry_source_name",
       date: Date.today
     }
