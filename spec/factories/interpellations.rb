@@ -17,7 +17,7 @@ FactoryGirl.define do
 
   factory :interpellation_ivod, parent: :interpellation do
     interpellation_type "ivod"
-    ivod_url 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
+    ivod_url 'https://ivod.ly.gov.tw/Play/VOD/77018/300K'
     committee { FactoryGirl.create(:committee) }
   end
 end

@@ -10,7 +10,7 @@ describe "Video" do
     {
       title: "new_video_title",
       legislator_ids: [ FactoryGirl.create(:legislator).id ],
-      ivod_url: 'http://ivod.ly.gov.tw/Play/VOD/77018/300K',
+      ivod_url: 'https://ivod.ly.gov.tw/Play/VOD/77018/300K',
       youtube_url: 'https://www.youtube.com/watch?v=6tg_I9O-dV0',
       video_type: 'news',
       source_url: "http://www.google.com",

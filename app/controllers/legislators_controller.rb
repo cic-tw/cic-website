@@ -334,7 +334,7 @@ class LegislatorsController < ApplicationController
 
     @jsonld = [
       menu_jsonld,
-      generate_page_jsonld("#{@legislator.name}影片列表 — #{@legislator.name}立委"),
+      generate_page_jsonld("#{@legislator.name}影片列表 — #{@legislator.name}立委", @main_video.try(:title)),
       generate_person_jsonld(@legislator),
       generate_videos_jsonld(@videos)
     ]

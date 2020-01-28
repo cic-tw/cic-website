@@ -54,7 +54,7 @@ class Video < ApplicationRecord
     elsif result['items'][0]['snippet']['thumbnails'].key?('default')
       self.image = result['items'][0]['snippet']['thumbnails']['default']['url']
     else
-      self.image = ''
+      self.image = "https://img.youtube.com/vi/#{self.youtube_id}/maxresdefault.jpg"
     end
 
     if self.title.blank?

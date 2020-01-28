@@ -8,7 +8,7 @@ describe "Admin" do
     {
       title: "new_admin_title",
       legislator_ids: [ FactoryGirl.create(:legislator).id ],
-      ivod_url: 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
+      ivod_url: 'https://ivod.ly.gov.tw/Play/VOD/77018/300K'
     }
   end
 

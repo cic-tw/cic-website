@@ -17,23 +17,23 @@ describe Interpellation do
     committee = FactoryGirl.create(:committee, name: '內政委員會')
     legislator = FactoryGirl.create(:legislator, name: '陳節如')
     interpellation = FactoryGirl.build :interpellation_ivod
-    interpellation.ivod_url = 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
+    interpellation.ivod_url = 'https://ivod.ly.gov.tw/Play/VOD/77018/300K'
     interpellation.update_ivod_values
     expect(interpellation.date).to eq(Date.parse('2014-10-08'))
     expect(interpellation.committee).to eq(committee)
     expect(interpellation.legislators).to include(legislator)
-    expect(interpellation.ivod_url).to eq('http://ivod.ly.gov.tw/Play/VOD/77018/1M')
+    expect(interpellation.ivod_url).to eq('https://ivod.ly.gov.tw/Play/VOD/77018/1M')
   end
 
   it "#ivod_update_full_work" do
     committee = FactoryGirl.create(:committee, name: '社會福利及衛生環境委員會')
     interpellation = FactoryGirl.build :interpellation_ivod
-    interpellation.ivod_url = 'http://ivod.ly.gov.tw/Play/Full/7648/300K'
+    interpellation.ivod_url = 'https://ivod.ly.gov.tw/Play/Full/7648/300K'
     interpellation.update_ivod_values
     #raise v.inspect
     expect(interpellation.date).to eq(Date.parse('2014-04-10'))
     expect(interpellation.committee).to eq(committee)
-    expect(interpellation.ivod_url).to eq('http://ivod.ly.gov.tw/Play/Full/7648/1M')
+    expect(interpellation.ivod_url).to eq('https://ivod.ly.gov.tw/Play/Full/7648/1M')
     expect(interpellation.meeting_description).to match("立法院第8屆第5會期社會福利及衛生環境委員會第13次全體委員會議")
   end
 
@@ -67,7 +67,7 @@ describe Interpellation do
     interpellation = FactoryGirl.build(:interpellation_ivod)
     interpellation.ivod_url = "wrong ivod url"
     expect{interpellation.save!}.to raise_error(ActiveRecord::RecordInvalid,'校驗失敗: ivod網址錯誤')
-    interpellation.ivod_url = "http://ivod.ly.gov.tw/Play/VOD/300K"
+    interpellation.ivod_url = "https://ivod.ly.gov.tw/Play/VOD/300K"
     interpellation.save
     expect(interpellation.errors.messages[:base].first).to eq('ivod網址錯誤')
     expect(interpellation.ivod_url).to eq(nil)

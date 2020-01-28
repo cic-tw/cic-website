@@ -13,7 +13,7 @@ describe "Interpellation" do
       content: "new_interpellation_content",
       legislator_ids: [ FactoryGirl.create(:legislator).id ],
       interpellation_type: 'ivod',
-      ivod_url: 'http://ivod.ly.gov.tw/Play/VOD/77018/300K'
+      ivod_url: 'https://ivod.ly.gov.tw/Play/VOD/77018/300K'
     }
   end
 
