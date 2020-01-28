@@ -71,7 +71,8 @@ class Video < ApplicationRecord
     end
     self.ivod_url = self.ivod_url.sub('http://', 'https://')
     ivod_uri = URI.parse(self.ivod_url)
-    html = Nokogiri::HTML(open(self.ivod_url))
+    response = HTTParty.get(self.ivod_url)
+    html = Nokogiri::HTML(response.body)
     info_section = html.css('div.legislator-video div.video-text')[0]
     if info_section.blank?
       # the ivod url is error
