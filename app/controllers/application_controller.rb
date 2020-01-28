@@ -153,7 +153,7 @@ class ApplicationController < ActionController::Base
     }
   end
 
-  def generate_people_jsonld(legislator)
+  def generate_person_jsonld(legislator)
     return {
       "@context": "http://schema.org/",
       "@type": "Person",
@@ -162,7 +162,7 @@ class ApplicationController < ActionController::Base
     }
   end 
 
-  def generate_person_jsonld(legislators)
+  def generate_people_jsonld(legislators)
     jsonld = {
       "@context": "http://schema.org/",
       "@type": "DataCatalog",

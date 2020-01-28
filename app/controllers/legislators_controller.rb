@@ -182,9 +182,12 @@ class LegislatorsController < ApplicationController
     @jsonld = [
       menu_jsonld,
       generate_page_jsonld("#{@legislator.name}調查報告 — #{@legislator.name}立委", '看看現任立委在國會殿堂的表現吧！'),
-      generate_person_jsonld(@legislator),
-      generate_videos_jsonld(@videos)
+      generate_person_jsonld(@legislator)      
     ]
+
+    unless @videos.blank?
+      @jsonld << generate_videos_jsonld(@videos)
+    end
 
     respond_to do |format|
       format.html

@@ -64,6 +64,13 @@ ads = [
       term_start: '2016-02-01',
       term_end: '2020-01-31'
     }
+    # , {
+    #   id: 10,
+    #   name: '第10屆',
+    #   vote_date: '2020-01-11',
+    #   term_start: '2020-02-01',
+    #   term_end: '2024-01-31'
+    # }
   ]
 
 ads.each do |a|
@@ -105,7 +112,12 @@ ad_sessions = [
   {id: 24, ad_id: 9, name: '第4會期第1次臨時會', date_start: '2018-01-05', date_end: '2018-01-30', regular: false, session: 4},
   {id: 25, ad_id: 9, name: '第5會期', date_start: '2018-02-27', date_end: '2018-05-31', regular: true, session: 5},
   {id: 26, ad_id: 9, name: '第5會期第1次臨時會', date_start: '2018-06-11', date_end: '2018-07-06', regular: false, session: 5},
-  {id: 27, ad_id: 9, name: '第6會期', date_start: '2018-09-21', date_end: nil, regular: true, session: 6}
+  {id: 27, ad_id: 9, name: '第6會期', date_start: '2018-09-21', date_end: '2018-12-28', regular: true, session: 6},
+  {id: 28, ad_id: 9, name: '第6會期第1次臨時會', date_start: '2019-01-02', date_end: '2019-01-10', regular: false, session: 6},
+  {id: 29, ad_id: 9, name: '第7會期', date_start: '2019-02-15', date_end: '2019-05-31', regular: true, session: 7},
+  {id: 30, ad_id: 9, name: '第7會期第1次臨時會', date_start: '2019-06-17', date_end: '2019-07-04', regular: false, session: 7},
+  {id: 31, ad_id: 9, name: '第8會期', date_start: '2019-09-17', date_end: '2019-12-31', regular: true, session: 8},
+  {id: 32, ad_id: 9, name: '第8會期第1次臨時會', date_start: '2020-01-14', date_end: '2020-01-20', regular: false, session: 8}
 ]
 
 ad_sessions.each do |a|
