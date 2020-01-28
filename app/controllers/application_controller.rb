@@ -187,8 +187,8 @@ class ApplicationController < ActionController::Base
       name: "#{video.legislators.first.name} － #{video.title}",
       description: video.title,
       embedUrl: "https://www.youtube.com/embed/#{@video.youtube_id}",
-      thumbnailUrl: "https://cic.tw#{video.image}",
-      uploadDate: "video.created_at.strftime('%Y%m%d')"
+      thumbnailUrl: video.image,
+      uploadDate: "#{video.created_at.strftime('%Y%m%d')}"
     }
   end
 
@@ -203,8 +203,8 @@ class ApplicationController < ActionController::Base
         "@type": "VideoObject",
         description: video.title,
         name: "#{video.legislators.first.name} － #{video.title}",
-        thumbnailUrl: "https://cic.tw#{video.image}",
-        uploadDate: "video.created_at.strftime('%Y%m%d')"
+        thumbnailUrl: video.image,
+        uploadDate: "#{video.created_at.strftime('%Y%m%d')}"
       }
     end
     return jsonld
