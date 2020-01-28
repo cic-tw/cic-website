@@ -113,6 +113,9 @@ class Interpellation < ApplicationRecord
 
   def record_validate
     if self.interpellation_type == 'record'
+      if self.updated_at and !self.record_url_changed?
+        return true
+      end
       error = 0
       if self.date.to_s == ''
         error = 1
