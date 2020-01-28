@@ -395,10 +395,16 @@ Entry.all.each do |e|
 end
 
 Interpellation.all.each do |i|
+  if i.ivod_url
+    i.ivod_url.sub!('http://', 'https://')
+  end
   i.save
 end
 
 Video.all.each do |v|
+  if v.ivod_url
+    v.ivod_url.sub!('http://', 'https://')
+  end
   v.save
 end
 

@@ -75,7 +75,7 @@ class Video < ApplicationRecord
     if self.ivod_url.to_s == '' and ['news', 'others'].include? self.video_type
       return true
     end
-    self.ivod_url = self.ivod_url.sub('http://', 'https://')
+    self.ivod_url.sub!('http://', 'https://')
     ivod_uri = URI.parse(self.ivod_url)
     response = HTTParty.get(self.ivod_url)
     html = Nokogiri::HTML(response.body)

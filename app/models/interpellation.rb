@@ -29,7 +29,7 @@ class Interpellation < ApplicationRecord
     if self.ivod_url.to_s == ''
       return nil
     end
-    self.ivod_url = self.ivod_url.sub('http://', 'https://')
+    self.ivod_url.sub!('http://', 'https://')
     ivod_uri = URI.parse(self.ivod_url)
     response = HTTParty.get(self.ivod_url)
     html = Nokogiri::HTML(response.body)
