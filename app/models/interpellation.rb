@@ -23,6 +23,9 @@ class Interpellation < ApplicationRecord
 
 
   def update_ivod_values
+    if self.updated_at and !self.ivod_url_changed?
+      return true
+    end
     if self.ivod_url.to_s == ''
       return nil
     end
@@ -88,6 +91,9 @@ class Interpellation < ApplicationRecord
   private
 
   def is_ivod_url
+    if self.updated_at and !self.ivod_url_changed?
+      return true
+    end
     if self.ivod_url.to_s == ''
       if ['record'].include? self.interpellation_type
         return true

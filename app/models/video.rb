@@ -23,6 +23,9 @@ class Video < ApplicationRecord
 
 
   def update_youtube_values
+    if self.updated_at and !self.youtube_url_changed?
+      return true
+    end
     youtube_id = extract_youtube_id(self.youtube_url)
     unless youtube_id
       self.youtube_url = nil
@@ -66,6 +69,9 @@ class Video < ApplicationRecord
   end
 
   def update_ivod_values
+    if self.updated_at and !self.ivod_url_changed?
+      return true
+    end
     if self.ivod_url.to_s == '' and ['news', 'others'].include? self.video_type
       return true
     end
@@ -135,6 +141,9 @@ class Video < ApplicationRecord
   private
 
   def is_youtube_url
+    if self.updated_at and !self.youtube_url_changed?
+      return true
+    end
     begin
       youtube_uri = URI.parse(self.youtube_url)
       errors.add(:base, '填寫網址非youtube網址') unless ['www.youtube.com', 'youtu.be'].include?(youtube_uri.try(:host))
@@ -146,6 +155,9 @@ class Video < ApplicationRecord
   end
 
   def is_ivod_url
+    if self.updated_at and !self.ivod_url_changed?
+      return true
+    end
     if self.ivod_url.to_s == ''
       if ['news', 'others'].include? self.video_type
         return true
@@ -170,6 +182,9 @@ class Video < ApplicationRecord
       if self.date.to_s == ''
         error = 1
         errors.add(:base, '必須填寫新聞日期')
+      end
+      if self.updated_at and !self.source_url_changed?
+        return true
       end
       unless self.source_url.to_s == ''
         begin

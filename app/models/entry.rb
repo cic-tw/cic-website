@@ -32,6 +32,9 @@ class Entry < ApplicationRecord
   end
 
   def is_source_url
+    if self.updated_at and !self.source_url_changed?
+      return true
+    end
     begin
       escape_uri = URI.escape(self.source_url)
       source_uri = URI.parse(URI.escape(self.source_url))
