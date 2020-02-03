@@ -63,14 +63,13 @@ ads = [
       vote_date: '2016-01-16',
       term_start: '2016-02-01',
       term_end: '2020-01-31'
+    }, {
+      id: 10,
+      name: '第10屆',
+      vote_date: '2020-01-11',
+      term_start: '2020-02-01',
+      term_end: '2024-01-31'
     }
-    # , {
-    #   id: 10,
-    #   name: '第10屆',
-    #   vote_date: '2020-01-11',
-    #   term_start: '2020-02-01',
-    #   term_end: '2024-01-31'
-    # }
   ]
 
 ads.each do |a|
