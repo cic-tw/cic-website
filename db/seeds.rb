@@ -320,6 +320,9 @@ ads.each do |ad|
       if l['id'] == 1747
         # 徐欣瑩現在屬於民國黨
         legislator.now_party_id = 7
+      elsif l['id'] == 950
+        # 傅崐萁現在屬於國民黨
+        legislator.now_party_id = 2
       end
       legislator.name = l['name']
       if ad == ads.last
