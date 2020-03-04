@@ -147,7 +147,8 @@ class Video < ApplicationRecord
     begin
       youtube_uri = URI.parse(self.youtube_url)
       errors.add(:base, '填寫網址非youtube網址') unless ['www.youtube.com', 'youtu.be'].include?(youtube_uri.try(:host))
-      errors.add(:base, 'youtube網址無法存取') unless HTTParty.get(self.youtube_url).code == 200
+      # Youtube sometimes will appear 429 for too many requests
+      errors.add(:base, 'youtube網址無法存取') unless [200, 429].include?(HTTParty.get(self.youtube_url).code)
     rescue
       errors.add(:base, 'youtube網址錯誤')
       throw(:abort)
