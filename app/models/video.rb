@@ -41,23 +41,24 @@ class Video < ApplicationRecord
     api_url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + self.youtube_id + '&key=' + Setting.google_public_key.api_key
     response = HTTParty.get(api_url)
     result = JSON.parse(response.body)
-    unless result['items'].any?
-      self.youtube_url = nil
-      errors.add(:base, 'youtube網址錯誤')
-      throw(:abort)
-    end
-    if result['items'][0]['snippet']['thumbnails'].key?('maxres')
-      self.image = result['items'][0]['snippet']['thumbnails']['maxres']['url']
-    elsif result['items'][0]['snippet']['thumbnails'].key?('standard')
-      self.image = result['items'][0]['snippet']['thumbnails']['standard']['url']
-    elsif result['items'][0]['snippet']['thumbnails'].key?('high')
-      self.image = result['items'][0]['snippet']['thumbnails']['high']['url']
-    elsif result['items'][0]['snippet']['thumbnails'].key?('medium')
-      self.image = result['items'][0]['snippet']['thumbnails']['medium']['url']
-    elsif result['items'][0]['snippet']['thumbnails'].key?('default')
-      self.image = result['items'][0]['snippet']['thumbnails']['default']['url']
-    else
-      self.image = "https://img.youtube.com/vi/#{self.youtube_id}/maxresdefault.jpg"
+    # unless result['items'].any?
+    #   self.youtube_url = nil
+    #   errors.add(:base, 'youtube網址錯誤')
+    #   throw(:abort)
+    # end
+    self.image = "https://img.youtube.com/vi/#{self.youtube_id}/maxresdefault.jpg"
+    if result.key?(items)
+      if result['items'][0]['snippet']['thumbnails'].key?('maxres')
+        self.image = result['items'][0]['snippet']['thumbnails']['maxres']['url']
+      elsif result['items'][0]['snippet']['thumbnails'].key?('standard')
+        self.image = result['items'][0]['snippet']['thumbnails']['standard']['url']
+      elsif result['items'][0]['snippet']['thumbnails'].key?('high')
+        self.image = result['items'][0]['snippet']['thumbnails']['high']['url']
+      elsif result['items'][0]['snippet']['thumbnails'].key?('medium')
+        self.image = result['items'][0]['snippet']['thumbnails']['medium']['url']
+      elsif result['items'][0]['snippet']['thumbnails'].key?('default')
+        self.image = result['items'][0]['snippet']['thumbnails']['default']['url']
+      end
     end
 
     if self.title.blank?
