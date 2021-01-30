@@ -47,7 +47,7 @@ class Video < ApplicationRecord
     #   throw(:abort)
     # end
     self.image = "https://img.youtube.com/vi/#{self.youtube_id}/maxresdefault.jpg"
-    if result.key?(items)
+    if result.key?('items')
       if result['items'][0]['snippet']['thumbnails'].key?('maxres')
         self.image = result['items'][0]['snippet']['thumbnails']['maxres']['url']
       elsif result['items'][0]['snippet']['thumbnails'].key?('standard')
@@ -59,13 +59,12 @@ class Video < ApplicationRecord
       elsif result['items'][0]['snippet']['thumbnails'].key?('default')
         self.image = result['items'][0]['snippet']['thumbnails']['default']['url']
       end
-    end
-
-    if self.title.blank?
-      self.title = result['items'][0]['snippet']['title']
-    end
-    if self.content.blank?
-      self.content = result['items'][0]['snippet']['description'].gsub(/[\n]/,"<br />").gsub(/[\r]/,"")
+      if self.title.blank?
+        self.title = result['items'][0]['snippet']['title']
+      end
+      if self.content.blank?
+        self.content = result['items'][0]['snippet']['description'].gsub(/[\n]/,"<br />").gsub(/[\r]/,"")
+      end
     end
   end
 
